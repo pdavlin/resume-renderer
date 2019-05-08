@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "cssbuild": "tailwind build styles.css -o static/tailwind-computed.css",
+    "render": "node index.js",
+    "full": "npm run cssbuild && npm run render"
   },
   "author": "Price Comstock",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "tailwindcss": "^0.7.4"
   },
   "dependencies": {
     "express": "^4.16.4",

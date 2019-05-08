@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Resume</title>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Lato:400,700" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/tailwind-computed.css" rel="stylesheet">
 </head>
 <body>
     <!-- HEADER -->
@@ -33,12 +33,12 @@
             {{ basics.github }}
         </div>
     </div>
-    
+    <hr>
     <!-- WORK EXPERIENCE -->
-    <div class="text-lg font-bold mt-6">Work Experience</div>
+    <div class="test-resume-section-header">Work Experience</div>
     <div class="flex flex-col">
         {% for job in work %}
-            <div class="flex justify-between text-sm font-bold mb-2 mt-6">
+            <div class="flex justify-between test-resume-sub-header">
                 <div class="flex-1">{{ job.company }} - {{ job.position }}</div>
                 <div class="flex-1 text-right">{{ job.location }} ({{ job.startDate }} - {{ job.endDate }})</div>
             </div>
@@ -49,12 +49,12 @@
             </ul>
         {% endfor %}
     </div>
-    
+    <hr>
     <!-- Education -->
-    <div class="text-lg font-bold mt-6">Education</div>
+    <div class="test-resume-section-header">Education</div>
     <div class="flex flex-col">
         {% for edu in education %}
-            <div class="flex justify-between text-sm font-bold mb-2 mt-6">
+            <div class="flex justify-between test-resume-sub-header">
                 <div class="flex-1">{{ edu.institution }}</div>
                 <div class="flex-1 text-right">{{ edu.location }} ({{ edu.startDate }} - {{ edu.endDate }})</div>
             </div>
@@ -65,18 +65,18 @@
         {% endfor %}
     </div>
     
-    
+    <hr>
     <!-- Side Projects -->
-    <div class="text-lg font-bold mt-6">Side Projects</div>
+    <div class="test-resume-section-header">Side Projects</div>
     <div class="flex flex-col">
         {% for project in projects %}
-            <div class="flex justify-between text-sm font-bold mb-2 mt-6">
+            <div class="flex justify-between test-resume-sub-header">
                 <div class="flex-1">{{ project.name }}</div>
                 {# <div class="flex-1 text-right">{{ edu.location }} ({{ edu.startDate }} - {{ edu.endDate }})</div> #}
             </div>
             <ul class="text-sm">
                 {% for highlight in project.highlights %}
-                    <li class="my-1">{{ highlight }}</li>
+                    <li class="mb-1">{{ highlight }}</li>
                 {% endfor %}
             </ul>
         {% endfor %}

@@ -13,20 +13,20 @@ nunjucks.configure('resumes', {
 })
 
 
-
-app.get('/', (req, res) => {
-    res.render('index.html', resumeData);
+app.use(express.static('static'))
+app.get('/resume/:template', (req, res) => {
+    res.render(req.params.template, resumeData);
 })
 
 const port = 3000;
-app.listen(port, () => console.log('listening on ' + port));
+const server = app.listen(port, () => console.log('listening on ' + port));
 
-const render = async () => {
+const render = async (fileName) => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto(`http://localhost:${port}`, {waitUntil: "networkidle2"});
+await page.goto(`http://localhost:${port}/resume/${fileName}`, {waitUntil: "networkidle2"});
     await page.pdf({
-        path: 'out/out.pdf',
+        path: `out/${fileName.split('.')[0]}.pdf`,
         format: 'Letter',
         pageRanges: '1'
     });
@@ -35,4 +35,20 @@ const render = async () => {
     console.log('finished')
 }
 
-render();
+const renderTemplates = [
+    // 'index.html',
+    '2pretty.html'
+]
+
+async function renderAll (callback) {
+    for (let index = 0; index < renderTemplates.length; index++) {
+        await render(renderTemplates[index]);
+    }
+    
+    callback();
+}
+
+renderAll(() => {
+    server.close();
+    process.exit(0);
+});

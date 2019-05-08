@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Resume</title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:700|Montserrat:400,700" rel="stylesheet">
+    <link href="/tailwind-computed.css" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="flex mb-2 py-2 justify-between items-end">
+        <div class="flex-grow text-5xl font-bold">{{ basics.name }}</div>
+        <div class="flex-1">
+            <div class="flex flex-col text-sm justify-between leading-normal text-right">
+                <p>{{ basics.email }}</p>
+                <p>{{ basics.github }}</p>
+                <p>{{ basics.phone }}</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    
+    <div class="flex">
+        <!-- LEFT SIDE -->
+        <div class="flex content-start flex-col w-3/5">
+            <div class="pretty-resume-section-header">
+                Work Experience
+            </div>
+            <div class="flex-shrink py-4 pr-4">
+                {% for job in work %}
+                        <div class="text-center text-xl font-bold mb-2">{{ job.company }}</div>
+                        <div class="text-center serif italic mb-1">{{ job.position }}</div>
+                        <div class="text-center text-smr uppercase">{{ job.location }} ({{ job.startDate }} - {{ job.endDate }})</div>
+                    <ul class="pretty-resume-bullets mb-4">
+                        {% for highlight in job.highlights %}
+                        <li class="my-2">{{ highlight }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+            <div class="flex-auto">
+                <div class="pretty-resume-section-header">
+                    Education
+                </div>
+                {% for edu in education %}
+                    <div class="pt-4 pr-4">
+                            <div class="text-center text-xl font-bold mb-2">{{ edu.institution }}</div>
+                            <div class="text-center serif italic mb-1">{{ edu.studyTypeShort }} {{ edu.area }}</div>
+                            <div class="text-center text-smr">MINORS: {% for minor in edu.minors %}
+                                    {{ minor }}{% if not loop.last %},{% endif %}
+                                    {% endfor %}
+                            </div>
+                    </div>
+                    </div>
+                {% endfor %}
+            
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="flex flex-col flex-1 border-l-2 border-green">
+            <div class="pretty-resume-section-header">
+                Side Projects
+            </div>
+            <div class="">
+                {% for project in projects %}
+                    <div class="flex-shrink">
+                        <div class="uppercase font-bold text-center text-sm mb-1 mt-4 tracking-slight">{{ project.name }}</div>
+                    </div>
+                    <ul class="pretty-resume-bullets">
+                        {% for highlight in project.highlights %}
+                            <li class="my-2">{{ highlight }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+            <div class="pretty-resume-section-header">
+                Skills
+            </div>
+            <div class="">
+                {% for project in projects %}
+                    <div class="flex-shrink">
+                        <div class="uppercase font-bold text-center text-sm mb-1 mt-4 tracking-slight">{{ project.name }}</div>
+                    </div>
+                    <ul class="pretty-resume-bullets">
+                        {% for highlight in project.highlights %}
+                            <li class="my-2">{{ highlight }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</body>
+<style> 
+
+/* prevents pdf from color changing */
+html {
+  -webkit-print-color-adjust: exact;
+}
+
+body {
+    margin: 5% 8%;
+    /* font-family: 'Roboto Slab', serif; */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.serif {
+    font-family: 'Josefin Slab', serif;
+}
+</style>
+</html>
