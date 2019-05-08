@@ -5,10 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Resume</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    {{ basics.name }}
-    test
+    <!-- HEADER -->
+    <div class="flex mb-2 py-2 justify-between items-end">
+        <div class="flex-1 text-sm">
+            {{ basics.phone }}
+            <br>
+            {{ basics.email }}
+        </div>
+
+        <div class="flex-grow self-center text-center">
+            <div class="text-4xl -mb-4 tracking-tight">
+                {{ basics.name }}
+            </div>
+            <br>
+            <div class="text-sm">
+                {{ basics.location.lockup }}
+            </div>
+        </div>
+
+        <div class="flex-1 text-right align-middle leading-tight text-sm">
+            {{ basics.website }}
+            <br>
+            {{ basics.github }}
+        </div>
+    </div>
+    <div class="flex bg-grey-lighter">
+        <div class="flex-shrink bg-grey-light">1</div>
+        <div class="flex-1 bg-grey-light">2</div>
+    </div>
 </body>
+<style> 
+
+/* prevents pdf from color changing */
+html {
+  -webkit-print-color-adjust: exact;
+}
+
+body {
+    margin: 7% 8%;
+    font-family: 'Roboto Slab', serif;
+}
+</style>
 </html>

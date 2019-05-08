@@ -4,41 +4,57 @@
       "label": "Programmer",
       "picture": "",
       "email": "price.comstock@gmail.com",
-      "phone": "(912) 555-4321",
-      "website": "http://richardhendricks.com",
+      "phone": "(402) 943-7952",
+      "website": "pc.codes",
+      "github": "github.com/pricecomstock",
       "summary": "Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!",
       "location": {
-        "address": "2712 Broadway St",
-        "postalCode": "CA 94115",
-        "city": "San Francisco",
+        "address": "2215 Howard St",
+        "postalCode": "NE 68102",
+        "city": "Omaha",
+        "state": "NE",
+        "lockup": "Omaha, NE",
         "countryCode": "US",
-        "region": "California"
+        "region": "Nebraska"
       },
       "profiles": [
         {
-          "network": "Twitter",
-          "username": "neutralthoughts",
-          "url": ""
-        },
-        {
-          "network": "SoundCloud",
-          "username": "dandymusicnl",
-          "url": "https://soundcloud.com/dandymusicnl"
+          "network": "GitHub",
+          "username": "pricecomstock",
+          "url": "github.com/pricecomstock"
         }
       ]
     },
     "work": [
       {
-        "company": "Pied Piper",
-        "position": "CEO/President",
-        "website": "http://piedpiper.com",
-        "startDate": "2013-12-01",
-        "endDate": "2014-12-01",
-        "summary": "Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.",
+        "company": "NTT Security",
+        "position": "Technology Integration Engineer",
+        "website": "",
+        "startDate": "2016-05-01",
+        "endDate": "Present",
+        "location": "Omaha, NE",
+        "summary": "",
         "highlights": [
-          "Build an algorithm for artist to detect if their music was violating copy right infringement laws",
-          "Successfully won Techcrunch Disrupt",
-          "Optimized an algorithm that holds the current world record for Weisman Scores"
+          "Determined the security relevant components of logs from a wide variety of security and network devices.",
+          "Created parsing specifications for new technologies and updated log formats",
+          "Composed detailed and consistent technical documents to ensure accurate parsing and future accessibility.",
+          "Researched and created specifications for non-Rsyslog transport including REST APIs and database queries.",
+          "Directed the design, testing, troubleshooting, and validation of log transports from proof-of-concept to final release.",
+          "Created CLI and web utilities with Python and Javascript to automate tasks."
+        ]
+      },
+      {
+        "company": "First Data Corporation",
+        "position": "Intern, Associate Application Developer",
+        "website": "",
+        "startDate": "2012-07-01",
+        "endDate": "2016-05-01",
+        "location": "Omaha, NE",
+        "summary": "",
+        "highlights": [
+          "Troubleshot production Java business intelligence https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.cssreporting software to fix bugs and increase reliability.",
+          "Reviewed in-house penetration testing results and implemented vulnerability fix patches",
+          "Cofounded and tracked stats for intern foosball league and created ongoing simulation for league continuity."
         ]
       }
     ],
@@ -57,15 +73,18 @@
     ],
     "education": [
       {
-        "institution": "University of Oklahoma",
-        "area": "Information Technology",
-        "studyType": "Bachelor",
-        "startDate": "2011-06-01",
-        "endDate": "2014-01-01",
-        "gpa": "4.0",
+        "institution": "University of Nebraska - Omaha",
+        "area": "Information Assurance",
+        "studyType": "B.S.",
+        "startDate": "2011-08-01",
+        "endDate": "2016-05-01",
+        "gpa": "3.49",
         "courses": [
-          "DB1101 - Basic SQL",
-          "CS2011 - Java Introduction"
+          ""
+        ],
+        "minors": [
+          "Computer Science",
+          "Mathematics"
         ]
       }
     ],
