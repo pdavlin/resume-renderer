@@ -30,7 +30,7 @@
         "company": "NTT Security",
         "position": "Technology Integration Engineer",
         "website": "",
-        "startDate": "2016-05-01",
+        "startDate": "May 2016",
         "endDate": "Present",
         "location": "Omaha, NE",
         "summary": "",
@@ -44,15 +44,15 @@
         ]
       },
       {
-        "company": "First Data Corporation",
-        "position": "Intern, Associate Application Developer",
+        "company": "First Data",
+        "position": "Intern, Assoc. Application Developer",
         "website": "",
-        "startDate": "2012-07-01",
-        "endDate": "2016-05-01",
+        "startDate": "Jul. 2012",
+        "endDate": "May 2016",
         "location": "Omaha, NE",
         "summary": "",
         "highlights": [
-          "Troubleshot production Java business intelligence https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.cssreporting software to fix bugs and increase reliability.",
+          "Troubleshot production Java business intelligence reporting software to fix bugs and increase reliability.",
           "Reviewed in-house penetration testing results and implemented vulnerability fix patches",
           "Cofounded and tracked stats for intern foosball league and created ongoing simulation for league continuity."
         ]
@@ -75,10 +75,11 @@
       {
         "institution": "University of Nebraska - Omaha",
         "area": "Information Assurance",
-        "studyType": "B.S.",
-        "startDate": "2011-08-01",
-        "endDate": "2016-05-01",
+        "studyType": "Bachelor of Science",
+        "startDate": "August 2011",
+        "endDate": "May 2016",
         "gpa": "3.49",
+        "location": "Omaha, NE",
         "courses": [
           ""
         ],
@@ -144,6 +145,23 @@
       {
         "name": "Erlich Bachman",
         "reference": "It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company."
+      }
+    ],
+    "projects": [
+      {
+        "name": "Powerrank.io",
+        "highlights":[
+          "Fully responsive web app that calculates aggregate “power rankings” based on users filling out ranked choice polls.",
+          "Vue.js single-page application frontend with Vuex state management and Webpack bundling.",
+          "Node.js REST API backend using Mongoose to interface with MongoDB."
+        ]
+      },
+      {
+        "name": "Inspopaper",
+        "highlights":[
+          "App available on Slack app directory that creates novelty desktop wallpapers on demand from messages posted in Slack.",
+          "Serverless architecture using Google Cloud Python Functions and Google Cloud Blob Storage."
+        ]
       }
     ]
   }
