@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "cssbuild": "tailwind build styles.css -o static/tailwind-computed.css",
+    "css": "tailwind build styles.css -o static/tailwind-computed.css",
     "render": "node index.js",
-    "full": "npm run cssbuild && npm run render"
+    "build": "npm run cssbuild && npm run render"
   },
   "author": "Price Comstock",
   "license": "ISC",

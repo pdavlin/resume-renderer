@@ -7,3 +7,8 @@ More specifically:
 * Puppeteer for rendering using headless chromium's PDF output mode.
 
 I don't like WYSIWYG, LaTeX is old and a bit clunky around things like fonts, and I already know CSS for styling.
+
+## Running
+`npm run build` will rebuild the Tailwind.css file and render all resumes.
+`npm run css` will rebuild the Tailwind.css.
+`npm run render` will render all resumes without rebuilding the CSS file.
