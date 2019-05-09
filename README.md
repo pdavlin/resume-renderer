@@ -1,5 +1,5 @@
 # Resume-renderer
-It programmatically renders resumes (or other documents) using HTML, CSS, and JS.
+It programmatically renders PDF resumes (or other documents) using HTML, CSS, and JS.
 
 More specifically:
 * Nunjucks for Templating

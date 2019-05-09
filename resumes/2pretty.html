@@ -48,9 +48,8 @@
                     <div class="py-4 pr-4">
                             <div class="text-center text-xl font-bold mb-2">{{ edu.institution }}</div>
                             <div class="text-center serif italic mb-1">{{ edu.studyTypeShort }} {{ edu.area }}</div>
-                            <div class="text-center text-smr">MINORS: {% for minor in edu.minors %}
-                                    {{ minor }}{% if not loop.last %},{% endif %}
-                                    {% endfor %}
+                            <div class="text-center text-smr">
+                                MINORS: {% for minor in edu.minors %} {{ minor }}{% if not loop.last %},{% endif %} {% endfor %}
                             </div>
                     </div>
                     </div>
@@ -78,16 +77,14 @@
             <div class="pretty-resume-section-header">
                 Skills
             </div>
-            <div class="">
-                {% for project in projects %}
+            <div class="px-4 py-2">
+                {% for section, entries in skills %}
                     <div class="flex-shrink">
-                        <div class="uppercase font-bold text-center text-sm mb-1 mt-4 tracking-slight">{{ project.name }}</div>
+                        <div class="uppercase font-bold text-center text-sm mb-1 mt-4 tracking-slight">{{ section }}</div>
                     </div>
-                    <ul class="pretty-resume-bullets">
-                        {% for highlight in project.highlights %}
-                            <li class="my-2">{{ highlight }}</li>
-                        {% endfor %}
-                    </ul>
+                    <p class="text-smr text-center">
+                        {% for skill in entries %} {{ skill }}{% if not loop.last %},{% endif %} {% endfor %}
+                    </p>
                 {% endfor %}
             </div>
         </div>

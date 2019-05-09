@@ -1,7 +1,7 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
 const fs = require('fs');
-const resumeData = JSON.parse(fs.readFileSync('./resumedata.json', 'utf8'));
+const resumeData = require('./resumeData').frontEndData();
 
 const puppeteer = require('puppeteer');
 
@@ -18,7 +18,7 @@ app.get('/resume/:template', (req, res) => {
     res.render(req.params.template, resumeData);
 })
 
-const port = 3000;
+const port = 3000
 const server = app.listen(port, () => console.log('listening on ' + port));
 
 const render = async (fileName) => {
