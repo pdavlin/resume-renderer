@@ -1,7 +1,7 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
 const fs = require('fs');
-const resumeData = require('./resumeData').frontEndData();
+const config = require('./renderConfig');
 
 const puppeteer = require('puppeteer');
 
@@ -14,38 +14,37 @@ nunjucks.configure('resumes', {
 
 
 app.use(express.static('static'))
-app.get('/resume/:template', (req, res) => {
-    res.render(req.params.template, resumeData);
-})
 
+config.renders.forEach( (renderConfig) => {
+    app.get(`/resume/${renderConfig.title}`, (req, res) => {
+        res.render(renderConfig.template, renderConfig.data);
+    })
+})
+    
 const port = 3000
 const server = app.listen(port, () => console.log('listening on ' + port));
 
-const render = async (fileName) => {
+const render = async (renderConfig) => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-await page.goto(`http://localhost:${port}/resume/${fileName}`, {waitUntil: "networkidle2"});
+    await page.goto(`http://localhost:${port}/resume/${renderConfig.title}`, {waitUntil: "networkidle2"});
     await page.pdf({
-        path: `out/${fileName.split('.')[0]}.pdf`,
+        path: `out/${config.prefix}${renderConfig.title}.pdf`,
         format: 'Letter',
         pageRanges: '1'
     });
+    // console.log(renderConfig);
 
     await browser.close();
-    console.log('finished')
+    console.log('rendered', renderConfig.title)
 }
 
-const renderTemplates = [
-    // 'index.html',
-    '2pretty.html'
-]
-
 async function renderAll (callback) {
-    for (let index = 0; index < renderTemplates.length; index++) {
-        await render(renderTemplates[index]);
+    for (let index = 0; index < config.renders.length; index++) {
+        await render(config.renders[index]);
     }
     
-    callback();
+    // callback();
 }
 
 renderAll(() => {

@@ -35,6 +35,10 @@
      @apply flex-no-grow uppercase text-center text-xl py-2 font-bold text-green border-green border-t-2 border-b-2;
  }
 
+ .pretty-resume-subsection-header {
+    @apply uppercase font-bold text-center text-sm mt-4 tracking-slight;
+ }
+
  /**
   * Here you would add any of your custom component classes; stuff that you'd
   * want loaded *before* the utilities so that the utilities could still

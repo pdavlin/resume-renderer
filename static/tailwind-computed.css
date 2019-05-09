@@ -589,6 +589,16 @@ table {
   border-bottom-width: 2px;
 }
 
+.pretty-resume-subsection-header {
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  font-size: .875rem;
+  margin-bottom: .25rem;
+  margin-top: 1rem;
+  letter-spacing: -0.02em;
+}
+
 /**
   * Here you would add any of your custom component classes; stuff that you'd
   * want loaded *before* the utilities so that the utilities could still

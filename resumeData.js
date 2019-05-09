@@ -1,11 +1,17 @@
-// const fs = require('fs');
-// const util = require('util');
-
-// const inFile = fs.readFileSync('resumedata.json')
-
-// data = JSON.parse(inFile);
-
-// fs.writeFileSync('out.js', util.inspect(data, false, null))
+// Thanks 30 seconds of code!
+const deepClone = obj => {
+  let clone = Object.assign({}, obj);
+  Object.keys(clone).forEach(
+    key =>
+      (clone[key] =
+        typeof obj[key] === "object" ? deepClone(obj[key]) : obj[key])
+  );
+  return Array.isArray(obj) && obj.length
+    ? (clone.length = obj.length) && Array.from(clone)
+    : Array.isArray(obj)
+    ? Array.from(obj)
+    : clone;
+};
 
 const data = {
   basics: {
@@ -16,8 +22,7 @@ const data = {
     phone: "(402) 943-7952",
     website: "pc.codes",
     github: "github.com/pricecomstock",
-    summary:
-      "Richard hails from Tulsa. He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!",
+    summary: "Price is from Omaha.",
     location: {
       address: "2215 Howard St",
       postalCode: "NE 68102",
@@ -45,12 +50,11 @@ const data = {
       location: "Omaha, NE",
       summary: "",
       highlights: [
-        "Determined the security relevant components of logs from a wide variety of security and network devices.",
-        "Created parsing specifications for new technologies and updated log formats",
-        "Composed detailed and consistent technical documents to ensure accurate parsing and future accessibility.",
-        "Researched and created specifications for non-Rsyslog transport including REST APIs and database queries.",
         "Directed the design, testing, troubleshooting, and validation of log transports from proof-of-concept to final release.",
-        "Created CLI and web utilities with Python and Javascript to automate tasks."
+        "Created processes to parse and analyze security-relevant information in log data from a wide variety of network and security devices.",
+        "Researched and created specifications for non-Rsyslog transport including REST APIs and database queries.",
+        "Composed detailed and consistent technical documents to ensure accurate parsing and future accessibility.",
+        "Created CLI and web utilities to automate tasks using Python and Javascript."
       ]
     },
     {
@@ -68,17 +72,7 @@ const data = {
       ]
     }
   ],
-  volunteer: [
-    {
-      organization: "CoderDojo",
-      position: "Teacher",
-      website: "http://coderdojo.com/",
-      startDate: "2012-01-01",
-      endDate: "2013-01-01",
-      summary: "Global movement of free coding clubs for young people.",
-      highlights: ["Awarded 'Teacher of the Month'"]
-    }
-  ],
+  volunteer: [{}],
   education: [
     {
       institution: "University of Nebraska - Omaha",
@@ -93,24 +87,8 @@ const data = {
       minors: ["Computer Science", "Mathematics"]
     }
   ],
-  awards: [
-    {
-      title: "Digital Compression Pioneer Award",
-      date: "2014-11-01",
-      awarder: "Techcrunch",
-      summary: "There is no spoon."
-    }
-  ],
-  publications: [
-    {
-      name: "Video compression for 3d media",
-      publisher: "Hooli",
-      releaseDate: "2014-10-01",
-      website: "http://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)",
-      summary:
-        "Innovative middle-out compression algorithm that changes the way we store data."
-    }
-  ],
+  awards: [],
+  publications: [{}],
   certifications: [
     {
       name: "CompTIA Security+",
@@ -124,7 +102,7 @@ const data = {
       highlights: [
         "Fully responsive web app that calculates aggregate “power rankings” based on ranked-choice poll results.",
         "Vue.js single-page application frontend with Vuex state management and Webpack bundling.",
-        "Node.js REST API backend using Mongoose to interface with MongoDB."
+        "Node.js REST API backend using MongoDB via Mongoose."
       ]
     },
     {
@@ -134,10 +112,16 @@ const data = {
         "Serverless architecture using Python Google Cloud Functions and Google Cloud Blob Storage."
       ]
     },
+    // {
+    //   name: "Live Audience Voting",
+    //   highlights: [
+    //     "Vue.js application using D3.js and Socket.io to collect and visualize audience votes via smartphone."
+    //   ]
+    // },
     {
-      name: "Live Audience Voting",
+      name: "Powerpoint Generator",
       highlights: [
-        "Vue.js application using D3.js and Socket.io to collect and visualize audience votes via smartphone."
+        "Procedurally genrates PowerPoint presentations for fun or in emergency situations."
       ]
     }
   ]
@@ -160,6 +144,7 @@ const frontEndSkills = {
     "Vuex",
     "Git",
     "Linux",
+    "Docker",
     "REST APIs",
     "Socket.io",
     "Webpack",
@@ -192,6 +177,7 @@ const backEndSkills = {
   "tools and frameworks": [
     "Linux",
     "Git",
+    "Docker",
     "REST APIs",
     "Express",
     "Flask",
@@ -214,17 +200,9 @@ const backEndSkills = {
   ]
 };
 
-function basicData() {
-  return data;
-}
-
-function frontEndData() {
-  return Object.assign(data, {skills: frontEndSkills});
-}
-
-function backEndData() {
-  return Object.assign(data, {skills: backEndSkills});
-}
+const basicData = deepClone(data);
+const frontEndData = Object.assign(deepClone(data), { skills: frontEndSkills });
+const backEndData = Object.assign(deepClone(data), { skills: backEndSkills });
 
 module.exports = {
   basicData,
