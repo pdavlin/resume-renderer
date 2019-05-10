@@ -25,7 +25,7 @@
         <div class="flex">
             <!-- LEFT SIDE -->
             <div class="flex content-start flex-col w-3/5">
-                <div class="pretty-resume-section-header">
+                <div class="pretty-resume-section-header border-theme-color text-theme-color">
                     Work Experience
                 </div>
                 <div class="flex-shrink py-4 pr-4">
@@ -44,7 +44,7 @@
                     {% endfor %}
                 </div>
                 <div class="flex-shrink">
-                    <div class="pretty-resume-section-header">
+                    <div class="pretty-resume-section-header border-theme-color text-theme-color">
                         Education
                     </div>
                     {% for edu in education %}
@@ -73,8 +73,8 @@
             </div>
 
             <!-- RIGHT SIDE -->
-            <div class="flex content-start flex-col flex-1 border-l-2 border-green">
-                <div class="pretty-resume-section-header">
+            <div class="flex content-start flex-col flex-1 border-l-2 border-theme-color">
+                <div class="pretty-resume-section-header border-theme-color text-theme-color">
                     Side Projects
                 </div>
                 <div class="pb-4">
@@ -91,10 +91,11 @@
                         </div>
                     {% endfor %}
                 </div>
-                <div class="pretty-resume-section-header">
+                <div class="pretty-resume-section-header border-theme-color text-theme-color">
                     Skills
                 </div>
-                <div class="px-4 py-2 flex-1 flex flex-col content-start">
+                <!-- the large bottom padding here is to extend this side of the resume down -->
+                <div class="px-4 pt-2 pb-6 flex-1 flex flex-col content-start">
                     {% for section, entries in skills %}
                         <div class="flex-shrink py-0">
                             <div class="">
@@ -131,6 +132,14 @@
 
         .serif {
             font-family: 'Josefin Slab', serif;
+        }
+
+        .border-theme-color {
+            border-color: {{ themeColor }};
+        }
+        
+        .text-theme-color {
+            color: {{ themeColor }};
         }
     </style>
 </html>

@@ -583,8 +583,6 @@ table {
   padding-top: .5rem;
   padding-bottom: .5rem;
   font-weight: 700;
-  color: #38c172;
-  border-color: #38c172;
   border-top-width: 2px;
   border-bottom-width: 2px;
 }
@@ -594,7 +592,6 @@ table {
   font-weight: 700;
   text-align: center;
   font-size: .875rem;
-  margin-bottom: .25rem;
   margin-top: 1rem;
   letter-spacing: -0.02em;
 }

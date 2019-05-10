@@ -135,6 +135,7 @@ const frontEndSkills = {
     "Node.js",
     "Python",
     "Shell Scripting",
+    "C#",
     "SQL",
     "C",
     "Assembly"
@@ -143,14 +144,15 @@ const frontEndSkills = {
     "Vue.js",
     "Vuex",
     "Git",
-    "Linux",
-    "Docker",
-    "REST APIs",
     "Socket.io",
     "Webpack",
     "Bulma",
     "Bootstrap",
-    "Tailwind"
+    "Tailwind",
+    "Linux",
+    "Docker",
+    "Unity",
+    "REST APIs"
   ],
   other: [
     "Adobe Illustrator",
@@ -168,6 +170,7 @@ const backEndSkills = {
     "Node.js",
     "Python",
     "Shell Scripting",
+    "C#",
     "SQL",
     "C",
     "HTML5",
@@ -187,6 +190,7 @@ const backEndSkills = {
     "Vue.js",
     "Webpack",
     "Rsyslog",
+    "Unity",
     "Google Cloud Platform"
   ],
   other: [
@@ -201,8 +205,14 @@ const backEndSkills = {
 };
 
 const basicData = deepClone(data);
-const frontEndData = Object.assign(deepClone(data), { skills: frontEndSkills });
-const backEndData = Object.assign(deepClone(data), { skills: backEndSkills });
+const frontEndData = Object.assign(deepClone(data), {
+  skills: frontEndSkills,
+  themeColor: "#51bb7b"
+});
+const backEndData = Object.assign(deepClone(data), {
+  skills: backEndSkills,
+  themeColor: "#6574CD"
+});
 
 module.exports = {
   basicData,
