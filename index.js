@@ -5,6 +5,11 @@ const config = require('./renderConfig');
 
 const puppeteer = require('puppeteer');
 
+const outputFolder = "./out"
+if (!fs.existsSync(outputFolder)) {
+    fs.mkdirSync(outputFolder);
+}
+
 var app = express();
 
 nunjucks.configure('resumes', {
@@ -29,7 +34,7 @@ const render = async (renderConfig) => {
     const page = await browser.newPage();
     await page.goto(`http://localhost:${port}/resume/${renderConfig.title}`, {waitUntil: "networkidle2"});
     await page.pdf({
-        path: `out/${config.prefix}${renderConfig.title}.pdf`,
+        path: `${outputFolder}/${config.prefix}${renderConfig.title}.pdf`,
         format: 'Letter',
         pageRanges: '1'
     });
