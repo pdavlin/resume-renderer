@@ -16,7 +16,7 @@ const deepClone = obj => {
 const data = {
   basics: {
     name: "Price Comstock",
-    label: "Programmer",
+    label: "Full Stack Software Engineer",
     picture: "",
     email: "price.comstock@gmail.com",
     phone: "(402) 943-7952",
@@ -208,7 +208,13 @@ const backEndSkills = {
   ]
 };
 
-const basicData = deepClone(data);
+const anonymousBasics = {
+  name: "First Surname",
+  email: "email@example.com",
+  github: "github.com/lab",
+  phone: "402-555-5555"
+};
+
 const frontEndData = Object.assign(deepClone(data), {
   skills: frontEndSkills,
   themeColor: "#51bb7b"
@@ -217,9 +223,14 @@ const backEndData = Object.assign(deepClone(data), {
   skills: backEndSkills,
   themeColor: "#6574CD"
 });
+const anonymousData = Object.assign(deepClone(data), {
+  skills: backEndSkills,
+  themeColor: "#6574CD",
+  basics: anonymousBasics
+});
 
 module.exports = {
-  basicData,
   frontEndData,
-  backEndData
+  backEndData,
+  anonymousData
 };

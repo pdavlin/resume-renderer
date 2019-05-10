@@ -12,10 +12,15 @@ const renders = [
         template: "2pretty.html",
         data: resumeData.backEndData
     },
+    // {
+    //     title: "backend-dev-boring",
+    //     template: "index.html",
+    //     data: resumeData.backEndData
+    // },
     {
-        title: "backend-dev-boring",
-        template: "index.html",
-        data: resumeData.backEndData
+        title: "ANONYMIZED",
+        template: "2pretty.html",
+        data: resumeData.anonymousData
     },
 ]
 
