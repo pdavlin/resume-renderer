@@ -18,3 +18,5 @@ Then the following commands will work:
 `npm run build` will rebuild the Tailwind.css file and render all resumes.
 `npm run css` will rebuild the Tailwind.css.
 `npm run render` will render all resumes without rebuilding the CSS file.
+
+Try `nodemon index.js` to rerender all pdfs upon saving a file.
