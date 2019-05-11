@@ -13,6 +13,18 @@ const deepClone = obj => {
     : clone;
 };
 
+const merge = (...objs) =>
+  [...objs].reduce(
+    (acc, obj) =>
+      Object.keys(obj).reduce((a, k) => {
+        acc[k] = acc.hasOwnProperty(k)
+          ? [].concat(acc[k]).concat(obj[k])
+          : obj[k];
+        return acc;
+      }, {}),
+    {}
+  );
+
 const data = {
   basics: {
     name: "Price Comstock",
@@ -22,7 +34,8 @@ const data = {
     phone: "(402) 943-7952",
     website: "pc.codes",
     github: "github.com/pricecomstock",
-    summary: "I am a full-stack developer seeking a software engineering position. I am most proficient in Node.js and Python, and have operations and deployment experience.",
+    summary:
+      "I am a full-stack developer seeking a software engineering position. I am most proficient in Node.js and Python, and have operations and deployment experience.",
     location: {
       address: "2215 Howard St",
       postalCode: "NE 68102",
@@ -50,11 +63,11 @@ const data = {
       location: "Omaha, NE",
       summary: "",
       highlights: [
-        "Directed the design, testing, troubleshooting, and validation of log transports from proof-of-concept to final release.",
-        "Created processes to parse and analyze security-relevant information in log data from a wide variety of network and security devices.",
+        "Directed the design, testing, troubleshooting, and validation of log transport agents from proof-of-concept to final release.",
         "Researched and created specifications for non-Rsyslog transport including REST APIs and database queries.",
-        "Composed detailed and consistent technical documents to ensure accurate parsing and future accessibility.",
-        "Created CLI and web utilities to automate tasks using Python and Javascript."
+        "Analyzed data from a wide variety of network and security devices to create parsing rules for security-relevant information.",
+        "Composed detailed and consistent technical documents to ensure accurate parsing and future maintainability.",
+        "Created CLI utilities with Python and web utilities with Javascript and Vue to automate tasks."
       ]
     },
     {
@@ -95,7 +108,6 @@ const data = {
       date: "June 2018"
     }
   ],
-  skills: {},
   projects: [
     {
       name: "Powerrank.io",
@@ -139,6 +151,7 @@ const frontEndSkills = {
     "Python",
     "Shell Scripting",
     "C#",
+    "Java",
     "SQL",
     "C",
     "Assembly"
@@ -174,6 +187,7 @@ const backEndSkills = {
     "Python",
     "Shell Scripting",
     "C#",
+    "Java",
     "SQL",
     "C",
     "HTML5",
@@ -215,11 +229,11 @@ const anonymousBasics = {
   summary: data.basics.summary
 };
 
-const frontEndData = Object.assign(deepClone(data), {
+const frontEndData = merge(deepClone(data), {
   skills: frontEndSkills,
   themeColor: "#51bb7b"
 });
-const backEndData = Object.assign(deepClone(data), {
+const backEndData = merge(deepClone(data), {
   skills: backEndSkills,
   themeColor: "#6574CD"
 });

@@ -7,6 +7,7 @@
         <title>Resume</title>
         <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:700|Montserrat:400,700" rel="stylesheet">
         <link href="/tailwind-computed.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     </head>
     <body>
         <!-- HEADER -->
@@ -85,7 +86,9 @@
                     {% for project in projects %}
                         <div class="flex-shrink py-0">
                             <div class="">
-                                <div class="pretty-resume-subsection-header -mb-1"><a href="{{project.link}}">{{ project.name }}</a></div>
+                                <div class="pretty-resume-subsection-header -mb-1">
+                                    <a href="{{project.link}}">{{ project.name }} <i class="fas fa-external-link-alt link-icon"></i></a>
+                                </div>
                             </div>
                             <ul class="pretty-resume-bullets">
                                 {% for highlight in project.highlights %}
@@ -99,23 +102,25 @@
                     Skills
                 </div>
                 <!-- the large bottom padding here is to extend this side of the resume down -->
-                <div class="px-4 pt-2 pb-6 flex-1 flex flex-col content-start">
-                    {% for section, entries in skills %}
-                        <div class="flex-shrink py-0">
-                            <div class="">
-                                <div class="pretty-resume-subsection-header mb-1">{{ section }}</div>
+                <div class="flex-1">
+                    <div class="px-4 pt-2 pb-6 flex flex-col justify-start">
+                        {% for section, entries in skills %}
+                            <div class="flex-shrink py-0">
+                                <div class="">
+                                    <div class="pretty-resume-subsection-header">{{ section }}</div>
+                                </div>
+                                <p class="text-smr text-center">
+                                    {% for skill in entries %}
+                                        <span class="whitespace-no-wrap">
+                                            {% if loop.last %}{{ skill }}
+                                            {% else %}{{ skill }},
+                                            {% endif %}
+                                        </span>
+                                    {% endfor %}
+                                </p>
                             </div>
-                            <p class="text-smr text-center">
-                                {% for skill in entries %}
-                                    <span class="whitespace-no-wrap">
-                                        {% if loop.last %}{{ skill }}
-                                        {% else %}{{ skill }},
-                                        {% endif %}
-                                    </span>
-                                {% endfor %}
-                            </p>
-                        </div>
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -150,6 +155,12 @@
         a {
             text-decoration: none;
             color: #22292f;
+            /* color: {{ themeColor }}; */
+        }
+
+        .link-icon {
+            color: {{ themeColor }};
+            padding-left: 3px;
         }
     </style>
 </html>
