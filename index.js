@@ -39,17 +39,15 @@ const render = async renderConfig => {
     format: "Letter",
     pageRanges: "1"
   });
-  // console.log(renderConfig);
 
   await browser.close();
   console.log("rendered", renderConfig.title);
 };
 
 async function renderAll(callback) {
-  for (let index = 0; index < config.renders.length; index++) {
-    await render(config.renders[index]);
-  }
-
+    await Promise.all(config.renders.map((renderConfig) => {
+        return render(renderConfig);
+    }))
   // callback();
 }
 
