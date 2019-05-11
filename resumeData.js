@@ -22,7 +22,7 @@ const data = {
     phone: "(402) 943-7952",
     website: "pc.codes",
     github: "github.com/pricecomstock",
-    summary: "Price is from Omaha.",
+    summary: "I am a full-stack developer seeking a software engineering position. I am most proficient in Node.js and Python, and have operations and deployment experience.",
     location: {
       address: "2215 Howard St",
       postalCode: "NE 68102",
@@ -211,7 +211,8 @@ const anonymousBasics = {
   name: "First Surname",
   email: "email@example.com",
   github: "github.com/lab",
-  phone: "402-555-5555"
+  phone: "402-555-5555",
+  summary: data.basics.summary
 };
 
 const frontEndData = Object.assign(deepClone(data), {

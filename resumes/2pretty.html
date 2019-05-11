@@ -20,7 +20,11 @@
                 </div>
             </div>
         </div>
-        <hr>
+        {% if includeSummary %}
+        <div class="pb-4 text-sm">
+            {{ basics.summary }}
+        </div>
+        {% endif %}
 
         <div class="flex">
             <!-- LEFT SIDE -->
