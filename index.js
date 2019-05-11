@@ -3,6 +3,17 @@ const nunjucks = require("nunjucks");
 const fs = require("fs");
 const config = require("./renderConfig");
 
+const argv = require("yargs")
+    .usage('Usage: $0 [options]')
+    .help('h')
+    .option('s',{
+        alias: 'serve',
+        type: 'boolean',
+        default: false,
+        describe: 'Keeps the web server open instead of exiting the program after rendering PDFs. Good for using the web inspector.'
+    })
+    .argv;
+
 const puppeteer = require("puppeteer");
 
 const outputFolder = "./out";
@@ -45,13 +56,23 @@ const render = async renderConfig => {
 };
 
 async function renderAll(callback) {
-    await Promise.all(config.renders.map((renderConfig) => {
-        return render(renderConfig);
-    }))
-  // callback();
+  await Promise.all(
+    config.renders.map(renderConfig => {
+      return render(renderConfig);
+    })
+  );
+  callback();
 }
 
-renderAll(() => {
+function exitScript() {
   server.close();
   process.exit(0);
-});
+}
+
+if (argv.serve) {
+    // Keep server up after rendering instead of exiting script
+    // This is useful for using browser devtools to inspect rendered doc
+    renderAll(() => {});
+} else {
+    renderAll(exitScript);
+}
