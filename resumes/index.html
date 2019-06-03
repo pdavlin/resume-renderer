@@ -1,105 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Resume</title>
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Lato:400,700" rel="stylesheet">
-    <link href="/tailwind-computed.css" rel="stylesheet">
-</head>
-<body>
-    <!-- HEADER -->
-    <div class="flex mb-2 py-2 justify-between items-end">
-        <div class="flex-1 text-sm">
-            {{ basics.phone }}
-            <br>
-            {{ basics.email }}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Resume</title>
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Lato:400,700" rel="stylesheet">
+        <link href="/tailwind-computed.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- HEADER -->
+        <div class="flex mb-2 py-2 justify-between items-end">
+            <div class="flex-1 text-sm">
+                {{ basics.phone }}
+                <br>
+                {{ basics.email }}
+            </div>
+
+            <div class="flex-grow self-center text-center">
+                <div class="text-4xl -mb-4 tracking-tight">
+                    {{ basics.name }}
+                </div>
+                <br>
+                <div class="text-sm">
+                    {{ basics.location.lockup }}
+                </div>
+            </div>
+
+            <div class="flex-1 text-right align-middle leading-tight text-sm">
+                {{ basics.website }}
+                <br>
+                {{ basics.github }}
+            </div>
+        </div>
+        <hr>
+        <!-- WORK EXPERIENCE -->
+        <div class="test-resume-section-header">Work Experience</div>
+        <div class="flex flex-col">
+            {% for job in work %}
+                <div class="flex justify-between test-resume-sub-header">
+                    <div class="flex-1">{{ job.company }}
+                        -
+                        {{ job.position }}</div>
+                    <div class="flex-1 text-right">{{ job.location }}
+                        ({{ job.startDate }}
+                        -
+                        {{ job.endDate }})</div>
+                </div>
+                <ul class="text-sm">
+                    {% for highlight in job.highlights %}
+                        <li class="my-1">{{ highlight }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+        <hr>
+        <!-- Education -->
+        <div class="test-resume-section-header">Education</div>
+        <div class="flex flex-col">
+            {% for edu in education %}
+                <div class="flex justify-between test-resume-sub-header">
+                    <div class="flex-1">{{ edu.institution }}</div>
+                    <div class="flex-1 text-right">{{ edu.location }}
+                        ({{ edu.startDate }}
+                        -
+                        {{ edu.endDate }})</div>
+                </div>
+                <div class="text-sm">{{ edu.studyType }},
+                    {{ edu.area }}</div>
+                <div class="text-sm">Minors in
+                    {% for minor in edu.minors %}
+                        {{ minor }}
+                        {% if not loop.last %},{% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
         </div>
 
-        <div class="flex-grow self-center text-center">
-            <div class="text-4xl -mb-4 tracking-tight">
-                {{ basics.name }}
-            </div>
-            <br>
-            <div class="text-sm">
-                {{ basics.location.lockup }}
-            </div>
+        <hr>
+        <!-- Side Projects -->
+        <div class="test-resume-section-header">Side Projects</div>
+        <div class="flex flex-col">
+            {% for project in projects %}
+                <div class="flex justify-between test-resume-sub-header">
+                    <div class="flex-1">{{ project.name }}</div>
+                    {# <div class="flex-1 text-right">{{ edu.location }} ({{ edu.startDate }} - {{ edu.endDate }})</div> #}
+                </div>
+                <ul class="text-sm">
+                    {% for highlight in project.highlights %}
+                        <li class="mb-1">{{ highlight }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
         </div>
 
-        <div class="flex-1 text-right align-middle leading-tight text-sm">
-            {{ basics.website }}
-            <br>
-            {{ basics.github }}
-        </div>
-    </div>
-    <hr>
-    <!-- WORK EXPERIENCE -->
-    <div class="test-resume-section-header">Work Experience</div>
-    <div class="flex flex-col">
-        {% for job in work %}
-            <div class="flex justify-between test-resume-sub-header">
-                <div class="flex-1">{{ job.company }} - {{ job.position }}</div>
-                <div class="flex-1 text-right">{{ job.location }} ({{ job.startDate }} - {{ job.endDate }})</div>
-            </div>
-            <ul class="text-sm">
-                {% for highlight in job.highlights %}
-                <li class="my-1">{{ highlight }}</li>
-                {% endfor %}
-            </ul>
-        {% endfor %}
-    </div>
-    <hr>
-    <!-- Education -->
-    <div class="test-resume-section-header">Education</div>
-    <div class="flex flex-col">
-        {% for edu in education %}
-            <div class="flex justify-between test-resume-sub-header">
-                <div class="flex-1">{{ edu.institution }}</div>
-                <div class="flex-1 text-right">{{ edu.location }} ({{ edu.startDate }} - {{ edu.endDate }})</div>
-            </div>
-            <div class="text-sm">{{ edu.studyType }}, {{ edu.area }}</div>
-            <div class="text-sm">Minors in {% for minor in edu.minors %}
-            {{ minor }}{% if not loop.last %},{% endif %}
-            {% endfor %}</div>
-        {% endfor %}
-    </div>
-    
-    <hr>
-    <!-- Side Projects -->
-    <div class="test-resume-section-header">Side Projects</div>
-    <div class="flex flex-col">
-        {% for project in projects %}
-            <div class="flex justify-between test-resume-sub-header">
-                <div class="flex-1">{{ project.name }}</div>
-                {# <div class="flex-1 text-right">{{ edu.location }} ({{ edu.startDate }} - {{ edu.endDate }})</div> #}
-            </div>
-            <ul class="text-sm">
-                {% for highlight in project.highlights %}
-                    <li class="mb-1">{{ highlight }}</li>
-                {% endfor %}
-            </ul>
-        {% endfor %}
-    </div>
+    </body>
+    <style>
 
-</body>
-<style> 
+        /* prevents pdf from color changing */
+        html {
+            -webkit-print-color-adjust: exact;
+        }
 
-/* prevents pdf from color changing */
-html {
-  -webkit-print-color-adjust: exact;
-}
+        body {
+            margin: 5% 8%;
+            /* font-family: 'Roboto Slab', serif; */
+            font-family: 'Lato', sans-serif;
+        }
 
-body {
-    margin: 5% 8%;
-    /* font-family: 'Roboto Slab', serif; */
-    font-family: 'Lato', sans-serif;
-}
-
-
-
-.serif {
-    font-family: 'Josefin Slab', serif;
-}
-</style>
+        .serif {
+            font-family: 'Josefin Slab', serif;
+        }
+    </style>
 </html>

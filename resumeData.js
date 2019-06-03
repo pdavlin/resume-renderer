@@ -37,13 +37,13 @@ const data = {
     summary:
       "I am a full-stack developer seeking a software engineering position. I am most proficient in Node.js and Python, and have operations and deployment experience.",
     location: {
-      address: "2215 Howard St",
-      postalCode: "NE 68102",
-      city: "Omaha",
-      state: "NE",
-      lockup: "Omaha, NE",
+      address: "",
+      postalCode: "",
+      city: "New York",
+      state: "NY",
+      lockup: "New York City",
       countryCode: "US",
-      region: "Nebraska"
+      region: "New York"
     },
     profiles: [
       {
@@ -165,6 +165,7 @@ const frontEndSkills = {
     "Bulma",
     "Bootstrap",
     "Tailwind",
+    "D3js",
     "Linux",
     "Docker",
     "Unity",
@@ -176,6 +177,7 @@ const frontEndSkills = {
     "Blender",
     "Slack API",
     "Excel",
+    "Arduino",
     "Desktop Linux",
     "Improv Comedy"
   ]
@@ -208,7 +210,8 @@ const backEndSkills = {
     "Webpack",
     "Rsyslog",
     "Unity",
-    "Google Cloud Platform"
+    "Google Cloud Platform",
+    "Azure"
   ],
   other: [
     "Technical Writing",
@@ -216,6 +219,49 @@ const backEndSkills = {
     "Blender",
     "Slack API",
     "Excel",
+    "Arduino",
+    "Desktop Linux",
+    "Improv Comedy"
+  ]
+};
+
+const fullStackSkills = {
+  languages: [
+    "Node.js",
+    "Python",
+    "HTML5",
+    "CSS3",
+    "Shell Scripting",
+    "C#",
+    "Java",
+    "SQL",
+    "C",
+    "Assembly"
+  ],
+  "tools and frameworks": [
+    "Vue.js",
+    "REST APIs",
+    "Express",
+    "Flask",
+    "Linux",
+    "Git",
+    "Docker",
+    "MongoDB",
+    "PostgreSQL",
+    "Socket.io",
+    "Webpack",
+    "Rsyslog",
+    "Unity",
+    "Google Cloud Platform",
+    "Azure"
+  ],
+  other: [
+    "Technical Writing",
+    "Adobe Illustrator",
+    "Blender",
+    "Slack API",
+    "Excel",
+    "Arduino",
     "Desktop Linux",
     "Improv Comedy"
   ]
@@ -237,6 +283,10 @@ const backEndData = merge(deepClone(data), {
   skills: backEndSkills,
   themeColor: "#6574CD"
 });
+const fullStackData = merge(deepClone(data), {
+  skills: fullStackSkills,
+  themeColor: "#05a19c"
+});
 const anonymousData = Object.assign(deepClone(data), {
   skills: backEndSkills,
   themeColor: "#6574CD",
@@ -246,5 +296,6 @@ const anonymousData = Object.assign(deepClone(data), {
 module.exports = {
   frontEndData,
   backEndData,
-  anonymousData
+  anonymousData,
+  fullStackData
 };

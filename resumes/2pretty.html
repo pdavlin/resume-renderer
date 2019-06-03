@@ -12,7 +12,11 @@
     <body>
         <!-- HEADER -->
         <div class="flex mb-2 py-2 justify-between items-end">
-            <div class="flex-grow text-5xl font-bold">{{ basics.name }}</div>
+            <div class="flex-grow">
+                <div class="text-5xl font-bold">
+                    {{ basics.name }}
+                </div>
+            </div>
             <div class="flex-1">
                 <div class="flex flex-col text-sm justify-between leading-normal text-right">
                     <a href="mailto:{{basics.email}}">{{ basics.email }}</a>
@@ -22,9 +26,9 @@
             </div>
         </div>
         {% if includeSummary %}
-        <div class="pb-4 text-sm">
-            {{ basics.summary }}
-        </div>
+            <div class="pb-4 text-sm">
+                {{ basics.summary }}
+            </div>
         {% endif %}
 
         <div class="flex">
@@ -33,15 +37,15 @@
                 <div class="pretty-resume-section-header border-theme-color text-theme-color">
                     Work Experience
                 </div>
-                <div class="flex-shrink py-4 pr-4">
+                <div class="flex-shrink pr-4">
                     {% for job in work %}
-                        <div class="text-center text-xl font-bold mb-2">{{ job.company }}</div>
+                        <div class="text-center text-xl font-bold mb-2 mt-6">{{ job.company }}</div>
                         <div class="text-center serif italic mb-1">{{ job.position }}</div>
                         <div class="text-center text-smr uppercase">{{ job.location }}
                             ({{ job.startDate }}
                             -
                             {{ job.endDate }})</div>
-                        <ul class="pretty-resume-bullets mb-6">
+                        <ul class="pretty-resume-bullets">
                             {% for highlight in job.highlights %}
                                 <li class="my-2">{{ highlight }}</li>
                             {% endfor %}
@@ -49,7 +53,7 @@
                     {% endfor %}
                 </div>
                 <div class="flex-shrink">
-                    <div class="pretty-resume-section-header border-theme-color text-theme-color">
+                    <div class="pretty-resume-section-header border-theme-color text-theme-color mt-4">
                         Education
                     </div>
                     {% for edu in education %}
@@ -87,7 +91,9 @@
                         <div class="flex-shrink py-0">
                             <div class="">
                                 <div class="pretty-resume-subsection-header -mb-1">
-                                    <a href="{{project.link}}">{{ project.name }} <i class="fas fa-external-link-alt link-icon"></i></a>
+                                    <a href="{{project.link}}">{{ project.name }}
+                                        <i class="fas fa-external-link-alt link-icon"></i>
+                                    </a>
                                 </div>
                             </div>
                             <ul class="pretty-resume-bullets">
@@ -106,9 +112,7 @@
                     <div class="px-4 pt-2 pb-6 flex flex-col justify-start">
                         {% for section, entries in skills %}
                             <div class="flex-shrink py-0">
-                                <div class="">
-                                    <div class="pretty-resume-subsection-header">{{ section }}</div>
-                                </div>
+                                <div class="pretty-resume-subsection-header mb-1">{{ section }}</div>
                                 <p class="text-smr text-center">
                                     {% for skill in entries %}
                                         <span class="whitespace-no-wrap">
@@ -145,11 +149,11 @@
         }
 
         .border-theme-color {
-            border-color: {{ themeColor }};
+            border-color: {{themeColor}};
         }
-        
+
         .text-theme-color {
-            color: {{ themeColor }};
+            color: {{themeColor}};
         }
 
         a {
@@ -159,7 +163,7 @@
         }
 
         .link-icon {
-            color: {{ themeColor }};
+            color: {{themeColor}};
             padding-left: 3px;
         }
     </style>
