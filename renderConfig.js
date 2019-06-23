@@ -1,4 +1,4 @@
-const resumeData = require("./resumeData");
+const resumeData = require("./data/resumeData");
 
 const prefix = "ComstockPrice-";
 const renders = [
