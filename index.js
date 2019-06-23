@@ -4,15 +4,15 @@ const fs = require("fs");
 const config = require("./renderConfig");
 
 const argv = require("yargs")
-    .usage('Usage: $0 [options]')
-    .help('h')
-    .option('s',{
-        alias: 'serve',
-        type: 'boolean',
-        default: false,
-        describe: 'Keeps the web server open instead of exiting the program after rendering PDFs. Good for using the web inspector.'
-    })
-    .argv;
+  .usage("Usage: $0 [options]")
+  .help("h")
+  .option("s", {
+    alias: "serve",
+    type: "boolean",
+    default: false,
+    describe:
+      "Keeps the web server open instead of exiting the program after rendering PDFs. Good for using the web inspector."
+  }).argv;
 
 const puppeteer = require("puppeteer");
 
@@ -70,9 +70,9 @@ function exitScript() {
 }
 
 if (argv.serve) {
-    // Keep server up after rendering instead of exiting script
-    // This is useful for using browser devtools to inspect rendered doc
-    renderAll(() => {});
+  // Keep server up after rendering instead of exiting script
+  // This is useful for using browser devtools to inspect rendered doc
+  renderAll(() => {});
 } else {
-    renderAll(exitScript);
+  renderAll(exitScript);
 }
