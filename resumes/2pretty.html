@@ -53,12 +53,12 @@
                         </ul>
                     {% endfor %}
                 </div>
-                <div class="flex-shrink">
+                <div class="flex-shrink pr-4">
                     <div class="pretty-resume-section-header border-theme-color text-theme-color mt-4">
                         Education
                     </div>
                     {% for edu in education %}
-                        <div class="py-4 pr-4">
+                        <div class="pt-4 pb-2">
                             <div class="text-center text-xl font-bold mb-2">{{ edu.institution }}</div>
                             <div class="text-center serif italic mb-1">{{ edu.studyTypeShort }}
                                 {{ edu.area }}</div>
@@ -70,15 +70,15 @@
                                 {% endfor %}
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
-                {% for cert in certifications %}
-                    <div class="text-center">
-                        <div class="pretty-resume-subsection-header mb-1">Certifications</div>
-                        <div class="text-sm">{{ cert.name }}
-                            ({{ cert.date }})</div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                    {% for cert in certifications %}
+                        <div class="text-center">
+                            <div class="pretty-resume-subsection-header mb-1">Certifications</div>
+                            <div class="text-sm">{{ cert.name }}
+                                ({{ cert.date }})</div>
+                        </div>
+                    {% endfor %}
+                </div>
 
             </div>
 
