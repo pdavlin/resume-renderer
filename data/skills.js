@@ -44,8 +44,8 @@ const backEndSkills = {
   languages: [
     "JavaScript",
     "Python",
-    "Shell Scripting",
     "C#",
+    "Shell Scripting",
     "Java",
     "SQL",
     "C",
@@ -87,10 +87,10 @@ const fullStackSkills = {
   languages: [
     "JavaScript",
     "Python",
+    "C#",
     "HTML5",
     "CSS3",
     "Shell Scripting",
-    "C#",
     "Java",
     "SQL",
     "C",
