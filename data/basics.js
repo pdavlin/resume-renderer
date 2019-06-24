@@ -1,4 +1,4 @@
-module.exports = {
+const basics = {
   name: "Price Comstock",
   label: "Full Stack Software Engineer",
   picture: "",
@@ -25,3 +25,13 @@ module.exports = {
     }
   ]
 };
+
+const anonymousBasics = {
+  name: "First Surname",
+  email: "email@example.com",
+  github: "github.com/lab",
+  phone: "402-555-5555",
+  summary: basics.summary // references above object!
+};
+
+module.exports = { basics, anonymousBasics };
