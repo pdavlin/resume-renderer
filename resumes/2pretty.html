@@ -92,9 +92,13 @@
                         <div class="flex-shrink py-0">
                             <div class="">
                                 <div class="pretty-resume-subsection-header -mb-1">
-                                    <a href="{{project.link}}">{{ project.name }}
-                                        <i class="fas fa-external-link-alt link-icon"></i>
-                                    </a>
+                                    {% if project.link %}
+                                        <a href="{{project.link}}">{{ project.name }}
+                                            <i class="fas fa-external-link-alt link-icon"></i>
+                                        </a>
+                                    {% else %}
+                                        <span>{{ project.name }}</span>
+                                    {% endif %}
                                 </div>
                             </div>
                             <ul class="pretty-resume-bullets">
