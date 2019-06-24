@@ -8,8 +8,8 @@ const frontEndSkills = {
     "C#",
     "Java",
     "SQL",
-    "C",
-    "Assembly"
+    "C"
+    // "Assembly"
   ],
   "tools and frameworks": [
     "Vue.js",

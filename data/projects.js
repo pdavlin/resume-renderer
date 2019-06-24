@@ -1,8 +1,9 @@
-const deepClone = require("../util");
+const { deepClone } = require("../util");
 
 function replaceHighlights(project, highlights) {
   let newProject = deepClone(project);
   newProject.highlights = highlights;
+  return newProject;
 }
 
 const powerrank = {
@@ -32,6 +33,10 @@ const voting = {
   link: "https://testkitchen.fun"
 };
 
+const votingFrontEnd = replaceHighlights(voting, [
+  "Jackbox-style multiplayer game created with Vue.js, D3.js, and Socket.io to allow live audience voting via smartphone in comedy shows."
+]);
+
 const pptxgen = {
   name: "Powerpoint Generator",
   highlights: [
@@ -43,8 +48,7 @@ const pptxgen = {
 const resumeGenerator = {
   name: "HTML CV Renderer",
   highlights: [
-    "Renders pixel-perfect PDF documents using Nunjucks, HTML, CSS, and JavaScript.",
-    "Rendered this document."
+    "Renders pixel-perfect PDF résumés or other documents using Nunjucks, HTML, CSS, and JavaScript."
   ],
   link: "https://github.com/pricecomstock/resume-renderer"
 };
@@ -60,7 +64,7 @@ const theatreCam = {
 const generalProjects = [powerrank, voting, pptxgen];
 const jsProjects = [powerrank, voting, pptxgen];
 const pythonProjects = [powerrank, inspopaper, pptxgen]; // uh, as many are as worth showing off
-const frontendProjects = [powerrank, resumeGenerator, pptxgen];
+const frontendProjects = [powerrank, votingFrontEnd, resumeGenerator, pptxgen];
 
 module.exports = {
   generalProjects,
