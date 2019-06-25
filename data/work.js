@@ -12,7 +12,7 @@ module.exports = [
       "Researched and created specifications for non-Rsyslog transport including REST APIs and database queries.",
       "Analyzed data from a wide variety of network and security devices to create parsing rules for security-relevant information.",
       "Composed detailed and consistent technical documents to ensure accurate parsing and future maintainability.",
-      "Saved time and increased accuracy by creating CLI utilities with Python and web utilities with JavaScript and Vue to automate tasks throughout the company."
+      "Saved time and increased accuracy by creating CLI utilities with Python and web tools with JavaScript and Vue to automate tasks for multiple teams."
     ]
   },
   {

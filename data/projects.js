@@ -7,10 +7,10 @@ function replaceHighlights(project, highlights) {
 }
 
 const powerrank = {
-  name: "Powerrank.io",
+  name: "Powerrank",
   highlights: [
-    "Fully responsive web app that calculates aggregate “power rankings” based on ranked-choice poll results.",
-    "Vue.js SPA frontend bundled with Webpack. State managed with Vuex. Node.js REST API backend using MongoDB via Mongoose."
+    "Fully responsive Vue.js single page app that calculates aggregate “power rankings” based on ranked-choice poll results.",
+    "Node.js REST API backend using MongoDB."
   ],
   link: "https://powerrank.pc.codes"
 };
@@ -28,7 +28,7 @@ const voting = {
   name: "Live Audience Voting",
   highlights: [
     "Jackbox-style multiplayer game created to allow live audience voting via smartphone in comedy shows.",
-    "Socket.io server for real-time communication, with Vue.js frontend showing D3.js physics-based vote visualization."
+    "Socket.io server for real-time communication with Vue.js frontend and physics-based D3.js vote visualization."
   ],
   link: "https://testkitchen.fun"
 };
@@ -40,7 +40,7 @@ const votingFrontEnd = replaceHighlights(voting, [
 const pptxgen = {
   name: "Powerpoint Generator",
   highlights: [
-    "Procedurally generates PowerPoint presentations for fun or for important meetings."
+    "Procedurally generates PowerPoint presentations using a variety of local and API-based data sources."
   ],
   link: "https://forgotmyslides.xyz"
 };

@@ -9,37 +9,37 @@
  *
  * @import "tailwindcss/preflight";
  */
- @tailwind preflight;
+@tailwind preflight;
 
- /**
+/**
   * This injects any component classes registered by plugins.
   *
   * If using `postcss-import`, use this import instead:
   *
   * @import "tailwindcss/components";
   */
- @tailwind components;
- 
- .test-resume-section-header {
-     @apply text-xl font-bold mt-6 text-blue;
- }
- .test-resume-sub-header {
-     @apply text-sm font-bold mb-2 mt-4;
- }
+@tailwind components;
 
- .pretty-resume-bullets {
-     @apply text-smr leading-tight;
- }
+.test-resume-section-header {
+  @apply text-xl font-bold mt-6 text-blue;
+}
+.test-resume-sub-header {
+  @apply text-sm font-bold mb-2 mt-4;
+}
 
- .pretty-resume-section-header {
-     @apply flex-no-grow uppercase text-center text-xl py-2 font-bold border-t-2 border-b-2;
- }
+.pretty-resume-bullets {
+  @apply text-smr leading-tight;
+}
 
- .pretty-resume-subsection-header {
-    @apply uppercase font-bold text-center text-sm mt-4 tracking-slight;
- }
+.pretty-resume-section-header {
+  @apply flex-no-grow uppercase text-center text-xl py-2 font-bold border-t-2 border-b-2;
+}
 
- /**
+.pretty-resume-subsection-header {
+  @apply uppercase font-bold text-center text-sm mt-4 tracking-slight;
+}
+
+/**
   * Here you would add any of your custom component classes; stuff that you'd
   * want loaded *before* the utilities so that the utilities could still
   * override them.
@@ -54,8 +54,8 @@
   * @import "components/buttons";
   * @import "components/forms";
   */
- 
- /**
+
+/**
   * This injects all of Tailwind's utility classes, generated based on your
   * config file.
   *
@@ -63,18 +63,17 @@
   *
   * @import "tailwindcss/utilities";
   */
- 
 
- @tailwind utilities;
- 
- .tracking-slight {
-     letter-spacing: -0.02em;
- }
+@tailwind utilities;
 
- .text-smr {
-    font-size: .83rem;
+.tracking-slight {
+  letter-spacing: -0.02em;
 }
- /**
+
+.text-smr {
+  font-size: 0.83rem;
+}
+/**
   * Here you would add any custom utilities you need that don't come out of the
   * box with Tailwind.
   *
@@ -88,4 +87,3 @@
   * @import "utilities/background-patterns";
   * @import "utilities/skew-transforms";
   */
- 

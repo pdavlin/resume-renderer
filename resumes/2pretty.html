@@ -35,10 +35,10 @@
         <div class="flex">
             <!-- LEFT SIDE -->
             <div class="flex content-start flex-col w-3/5">
-                <div class="pretty-resume-section-header border-theme-color text-theme-color">
+                <div class="flex-shrink pretty-resume-section-header border-theme-color text-theme-color">
                     Work Experience
                 </div>
-                <div class="flex-shrink pr-4">
+                <div class="flex-1 pr-4">
                     {% for job in work %}
                         <div class="text-center text-xl font-bold mb-2 mt-6">{{ job.company }}</div>
                         <div class="text-center serif italic mb-1">{{ job.position }}</div>
@@ -53,7 +53,7 @@
                         </ul>
                     {% endfor %}
                 </div>
-                <div class="pretty-resume-section-header border-theme-color text-theme-color mt-4">
+                <div class="flex-shrink pretty-resume-section-header border-theme-color text-theme-color mt-4">
                     Education
                 </div>
                 <div class="flex-shrink pr-4">
@@ -84,7 +84,7 @@
 
             <!-- RIGHT SIDE -->
             <div class="flex content-start flex-col flex-1 border-l-2 border-theme-color">
-                <div class="pretty-resume-section-header border-theme-color text-theme-color">
+                <div class="flex-shrink pretty-resume-section-header border-theme-color text-theme-color">
                     Side Projects
                 </div>
                 <div class="pb-4">
@@ -109,7 +109,7 @@
                         </div>
                     {% endfor %}
                 </div>
-                <div class="pretty-resume-section-header border-theme-color text-theme-color">
+                <div class="flex-shrink pretty-resume-section-header border-theme-color text-theme-color">
                     Skills
                 </div>
                 <!-- the large bottom padding here is to extend this side of the resume down -->
