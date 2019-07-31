@@ -5,32 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Resume</title>
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Lato:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Neuton|Montserrat:400,700&display=swap" rel="stylesheet">
         <link href="/tailwind-computed.css" rel="stylesheet">
     </head>
     <body>
         <!-- HEADER -->
-        <div class="flex mb-2 py-2 justify-between items-end">
-            <div class="flex-1 text-sm">
-                {{ basics.phone }}
-                <br>
-                {{ basics.email }}
-            </div>
+        <div class="flex mb-2 py-2 justify-start items-center">
 
-            <div class="flex-grow self-center text-center">
-                <div class="text-4xl -mb-4 tracking-tight">
+            <div class="flex-grow self-start text-left">
+                <div class="text-5xl -mfb-4 tracking-tight sans font-bold">
                     {{ basics.name }}
                 </div>
                 <br>
-                <div class="text-sm">
-                    {{ basics.location.lockup }}
-                </div>
+                <div class="text-sm"></div>
             </div>
 
             <div class="flex-1 text-right align-middle leading-tight text-sm">
-                {{ basics.website }}
+                {{ basics.phone }}
                 <br>
-                {{ basics.github }}
+                <a href="mailto:{{basics.email}}">{{ basics.email }}</a>
+                <br>
+                <a href="http://{{basics.github}}">{{ basics.github }}</a>
+                <br>
+                {{ basics.location.lockup }}
             </div>
         </div>
         <hr>
@@ -50,6 +47,23 @@
                 <ul class="text-sm">
                     {% for highlight in job.highlights %}
                         <li class="my-1">{{ highlight }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+
+        <hr>
+        <!-- Side Projects -->
+        <div class="test-resume-section-header">Side Projects</div>
+        <div class="flex flex-col">
+            {% for project in projects %}
+                <div class="flex justify-between test-resume-sub-header">
+                    <div class="flex-1">{{ project.name }}</div>
+                    {# <div class="flex-1 text-right">{{ edu.location }} ({{ edu.startDate }} - {{ edu.endDate }})</div> #}
+                </div>
+                <ul class="text-sm">
+                    {% for highlight in project.highlights %}
+                        <li class="mb-1">{{ highlight }}</li>
                     {% endfor %}
                 </ul>
             {% endfor %}
@@ -77,23 +91,6 @@
             {% endfor %}
         </div>
 
-        <hr>
-        <!-- Side Projects -->
-        <div class="test-resume-section-header">Side Projects</div>
-        <div class="flex flex-col">
-            {% for project in projects %}
-                <div class="flex justify-between test-resume-sub-header">
-                    <div class="flex-1">{{ project.name }}</div>
-                    {# <div class="flex-1 text-right">{{ edu.location }} ({{ edu.startDate }} - {{ edu.endDate }})</div> #}
-                </div>
-                <ul class="text-sm">
-                    {% for highlight in project.highlights %}
-                        <li class="mb-1">{{ highlight }}</li>
-                    {% endfor %}
-                </ul>
-            {% endfor %}
-        </div>
-
     </body>
     <style>
 
@@ -105,11 +102,20 @@
         body {
             margin: 5% 8%;
             /* font-family: 'Roboto Slab', serif; */
-            font-family: 'Lato', sans-serif;
+            font-family: 'Neuton', sans-serif;
         }
 
         .serif {
-            font-family: 'Josefin Slab', serif;
+            font-family: 'Neuton', serif;
+        }
+        .sans {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000000;
+            /* color: {{ themeColor }}; */
         }
     </style>
 </html>

@@ -7,7 +7,9 @@
     "test": "jest",
     "css": "tailwind build styles.css -o static/tailwind-computed.css",
     "render": "node index.js",
-    "build": "npm run css && npm run render"
+    "build": "npm run css && npm run render",
+    "live": "nodemon index.js",
+    "serve": "node index.js -s"
   },
   "author": "Price Comstock",
   "license": "ISC",

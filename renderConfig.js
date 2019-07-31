@@ -17,11 +17,11 @@ const renders = [
     template: "2pretty.html",
     data: resumeData.fullStackData
   },
-  // {
-  //     title: "backend-dev-boring",
-  //     template: "index.html",
-  //     data: resumeData.backEndData
-  // },
+  {
+    title: "fullstack-dev-plain",
+    template: "plain.html",
+    data: resumeData.fullStackData
+  },
   {
     title: "ANONYMIZED",
     template: "2pretty.html",
