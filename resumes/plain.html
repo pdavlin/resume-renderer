@@ -10,17 +10,15 @@
     </head>
     <body>
         <!-- HEADER -->
-        <div class="flex mb-2 py-2 justify-start items-center">
+        <div class="flex justify-start items-center">
 
             <div class="flex-grow self-start text-left">
-                <div class="text-5xl -mfb-4 tracking-tight sans font-bold">
+                <div class="text-5xl -mfb-4 serif font-bold name">
                     {{ basics.name }}
                 </div>
-                <br>
-                <div class="text-sm"></div>
             </div>
 
-            <div class="flex-1 text-right align-middle leading-tight text-sm">
+            <div class="flex-1 text-right align-middle leading-tight">
                 {{ basics.phone }}
                 <br>
                 <a href="mailto:{{basics.email}}">{{ basics.email }}</a>
@@ -32,10 +30,10 @@
         </div>
         <hr>
         <!-- WORK EXPERIENCE -->
-        <div class="test-resume-section-header">Work Experience</div>
+        <div class="section-header">Work Experience</div>
         <div class="flex flex-col">
             {% for job in work %}
-                <div class="flex justify-between test-resume-sub-header">
+                <div class="flex justify-between subsection-header">
                     <div class="flex-1">{{ job.company }}
                         -
                         {{ job.position }}</div>
@@ -44,7 +42,7 @@
                         -
                         {{ job.endDate }})</div>
                 </div>
-                <ul class="text-sm">
+                <ul class="body-text">
                     {% for highlight in job.highlights %}
                         <li class="my-1">{{ highlight }}</li>
                     {% endfor %}
@@ -54,14 +52,14 @@
 
         <hr>
         <!-- Side Projects -->
-        <div class="test-resume-section-header">Side Projects</div>
+        <div class="section-header">Side Projects</div>
         <div class="flex flex-col">
             {% for project in projects %}
-                <div class="flex justify-between test-resume-sub-header">
+                <div class="flex justify-between subsection-header">
                     <div class="flex-1">{{ project.name }}</div>
                     {# <div class="flex-1 text-right">{{ edu.location }} ({{ edu.startDate }} - {{ edu.endDate }})</div> #}
                 </div>
-                <ul class="text-sm">
+                <ul class="body-text">
                     {% for highlight in project.highlights %}
                         <li class="mb-1">{{ highlight }}</li>
                     {% endfor %}
@@ -70,19 +68,19 @@
         </div>
         <hr>
         <!-- Education -->
-        <div class="test-resume-section-header">Education</div>
+        <div class="section-header">Education</div>
         <div class="flex flex-col">
             {% for edu in education %}
-                <div class="flex justify-between test-resume-sub-header">
+                <div class="flex justify-between subsection-header">
                     <div class="flex-1">{{ edu.institution }}</div>
                     <div class="flex-1 text-right">{{ edu.location }}
                         ({{ edu.startDate }}
                         -
                         {{ edu.endDate }})</div>
                 </div>
-                <div class="text-sm">{{ edu.studyType }},
+                <div class="body-text">{{ edu.studyType }},
                     {{ edu.area }}</div>
-                <div class="text-sm">Minors in
+                <div class="body-text">Minors in
                     {% for minor in edu.minors %}
                         {{ minor }}
                         {% if not loop.last %},{% endif %}
@@ -116,6 +114,38 @@
             text-decoration: none;
             color: #000000;
             /* color: {{ themeColor }}; */
+        }
+
+        hr {}
+
+        .name {
+            font-variant: small-caps;
+        }
+
+        .body-text {
+            /*font-size: 1.125rem;*/
+            font-size: 1rem;
+        }
+        li {
+            margin-left: -1.375rem;
+            padding-left: -5rem;
+        }
+
+        .section-header {
+            border-top: 1px solid #7722aa;
+            padding-top: 1rem;
+            width: 100%;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 1.75rem;
+            color: #7722aa;
+        }
+
+        .subsection-header {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
         }
     </style>
 </html>
