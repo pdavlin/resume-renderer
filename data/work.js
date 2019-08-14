@@ -5,7 +5,7 @@ module.exports = [
     website: "",
     startDate: "May 2016",
     endDate: "Present",
-    location: "Omaha, NE / Remote",
+    location: "Remote / Omaha, NE",
     summary: "",
     highlights: [
       "Designed, tested, and troubleshot the secure transportation of log data.",
