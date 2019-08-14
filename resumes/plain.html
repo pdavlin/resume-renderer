@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Resume</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Neuton|Montserrat:400,700&display=swap"
+      href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Montserrat:400,700&display=swap"
       rel="stylesheet"
     />
     <link href="/tailwind-computed.css" rel="stylesheet" />
@@ -49,7 +49,7 @@
       </div>
       <ul class="body-text">
         {% for highlight in job.highlights %}
-        <li class="my-1">{{ highlight }}</li>
+        <li class="my-2">{{ highlight }}</li>
         {% endfor %}
       </ul>
       {% endfor %}
@@ -58,9 +58,9 @@
     <hr />
     <!-- Skills -->
     <div class="section-header">Skills</div>
-        <ul class="body-text mt-4">
+        <ul class="body-text mt-3">
             {% for section, entries in skills %}
-                <li class="mb-1">
+                <li class="my-2">
                     <span class="font-bold capitalize">{{ section }}: </span>
                     {% for skill in entries %}
                         <span class="whitespace-no-wrap">
@@ -74,31 +74,28 @@
         </ul>
     </div>
     <hr />
-
-    <!-- Side Projects -->
+    
+    <!-- Compact Side Projects -->
     <div class="section-header">Side Projects</div>
-    <div class="flex flex-col">
-      {% for project in projects %}
-      <div class="flex justify-between subsection-header">
-        <div class="flex-1">{{ project.name }}</div>
-        {#
-        <div class="flex-1 text-right">
-          {{ edu.location }} ({{ edu.startDate }} - {{ edu.endDate }})
-        </div>
-        #}
-      </div>
-      <ul class="body-text">
-        {% for highlight in project.highlights %}
-        <li class="mb-1">{{ highlight }}</li>
-        {% endfor %}
-      </ul>
-      {% endfor %}
+        <ul class="body-text mt-3">
+            {% for project in projects %}
+                <li class="my-2">
+                    <a href="{{project.link}}" class="font-bold capitalize">{{ project.name }}:</a>
+                    <span>
+                    {% for highlight in project.highlights %}
+                            {% if loop.last %}{{ highlight }}
+                            {% else %}{{ highlight }}
+                            {% endif %}
+                    {% endfor %}
+                </span>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
     <hr />
 
     <!-- Education -->
     <div class="section-header">Education</div>
-    <div class="flex flex-col">
       {% for edu in education %}
       <div class="flex justify-between subsection-header">
         <div class="flex-1">{{ edu.institution }}</div>
@@ -108,14 +105,32 @@
           {{ edu.endDate }})
         </div>
       </div>
-      <div class="body-text">{{ edu.studyType }}, {{ edu.area }}</div>
       <div class="body-text">
-        Minors in {% for minor in edu.minors %}
-        {{ minor }}
-        {% if not loop.last %},{% endif %} {% endfor %}
-      </div>
-      {% endfor %}
+        <ul>
+          <li class="my-2">
+              {{ edu.studyType }}, {{ edu.area }}
+            </li>
+            <li class="my-2">
+                Minors in {% for minor in edu.minors %}
+                {% if not loop.last %}
+                {{ minor }},
+                {% else %}
+                {{ minor }}
+                {% endif %} {% endfor %}
+            </li>
+      </ul>
     </div>
+    <div class="subsection-header"></div>
+    {% endfor %}
+    {% for cert in certifications %}
+    <div class="flex justify-between subsection-header">
+        <div class="flex-1">Certification: {{ cert.name }}</div>
+        <div class="flex-1 text-right">
+            {{ cert.date }}
+        </div>
+    </div>
+    {% endfor %}
+    
   </body>
   <style>
 
@@ -127,11 +142,11 @@
     body {
         margin: 5% 8%;
         /* font-family: 'Roboto Slab', serif; */
-        font-family: 'Neuton', sans-serif;
+        font-family: 'Roboto Slab', sans-serif;
     }
 
     .serif {
-        font-family: 'Neuton', serif;
+        font-family: 'Roboto Slab', serif;
     }
     .sans {
         font-family: 'Montserrat', sans-serif;
@@ -151,7 +166,7 @@
 
     .body-text {
         /*font-size: 1.125rem;*/
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     li {
         margin-left: -1.375rem;
@@ -169,7 +184,7 @@
     }
 
     .subsection-header {
-        font-size: 1.125rem;
+        font-size: 0.875rem;
         font-weight: 700;
         margin-top: 1rem;
         margin-bottom: 0.5rem;

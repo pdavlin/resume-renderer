@@ -28,7 +28,7 @@ const voting = {
   name: "Live Audience Voting",
   highlights: [
     "Jackbox-style multiplayer game created to allow live audience voting via smartphone in comedy shows.",
-    "Socket.io server for real-time communication with Vue.js frontend and physics-based D3.js vote visualization."
+    "Socket.io server for real-time communication with Vue.js frontend and D3.js vote visualization."
   ],
   link: "https://testkitchen.fun"
 };
@@ -40,7 +40,7 @@ const votingFrontEnd = replaceHighlights(voting, [
 const pptxgen = {
   name: "Powerpoint Generator",
   highlights: [
-    "Procedurally generates PowerPoint presentations using a variety of local and API-based data sources."
+    "Procedurally generates slideshows using a variety of text and image sources."
   ],
   link: "https://forgotmyslides.xyz"
 };

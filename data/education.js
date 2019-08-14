@@ -4,7 +4,7 @@ module.exports = [
     area: "Information Assurance",
     studyType: "Bachelor of Science",
     studyTypeShort: "B.S.",
-    startDate: "August 2011",
+    startDate: "Aug. 2011",
     endDate: "May 2016",
     gpa: "3.49",
     location: "Omaha, NE",

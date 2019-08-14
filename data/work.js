@@ -5,19 +5,19 @@ module.exports = [
     website: "",
     startDate: "May 2016",
     endDate: "Present",
-    location: "Omaha, NE",
+    location: "Omaha, NE / Remote",
     summary: "",
     highlights: [
-      "Directed the design, testing, troubleshooting, and validation of log transport agents from proof-of-concept to final release.",
+      "Designed, tested, and troubleshot the secure transportation of log data.",
       "Researched and created specifications for non-Rsyslog transport including REST APIs and database queries.",
-      "Analyzed data from a wide variety of network and security devices to create parsing rules for security-relevant information.",
-      "Composed detailed and consistent technical documents to ensure accurate parsing and future maintainability.",
-      "Saved time and increased accuracy by creating CLI utilities with Python and web tools with JavaScript and Vue to automate tasks for multiple teams."
+      "Analyzed data to create security-relevant parsing rules for log data.",
+      "Composed detailed and consistent technical documents to ensure accuracy and maintainability.",
+      "Increased team efficiency by creating CLI Python utilities and JavaScript and Vue to automate tasks."
     ]
   },
   {
     company: "First Data",
-    position: "Intern, Assoc. Application Developer",
+    position: "Software Development Intern",
     website: "",
     startDate: "Jul. 2012",
     endDate: "May 2016",
