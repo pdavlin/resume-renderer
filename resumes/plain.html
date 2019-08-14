@@ -1,151 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Resume</title>
-        <link href="https://fonts.googleapis.com/css?family=Neuton|Montserrat:400,700&display=swap" rel="stylesheet">
-        <link href="/tailwind-computed.css" rel="stylesheet">
-    </head>
-    <body>
-        <!-- HEADER -->
-        <div class="flex justify-start items-center">
-
-            <div class="flex-grow self-start text-left">
-                <div class="text-5xl -mfb-4 serif font-bold name">
-                    {{ basics.name }}
-                </div>
-            </div>
-
-            <div class="flex-1 text-right align-middle leading-tight">
-                {{ basics.phone }}
-                <br>
-                <a href="mailto:{{basics.email}}">{{ basics.email }}</a>
-                <br>
-                <a href="http://{{basics.github}}">{{ basics.github }}</a>
-                <br>
-                {{ basics.location.lockup }}
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Resume</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Neuton|Montserrat:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/tailwind-computed.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <div class="flex justify-start items-center">
+      <div class="flex-grow self-start text-left">
+        <div class="text-5xl -mfb-4 serif font-bold name">
+          {{ basics.name }}
         </div>
-        <hr>
-        <!-- WORK EXPERIENCE -->
-        <div class="section-header">Work Experience</div>
-        <div class="flex flex-col">
-            {% for job in work %}
-                <div class="flex justify-between subsection-header">
-                    <div class="flex-1">{{ job.company }}
-                        -
-                        {{ job.position }}</div>
-                    <div class="flex-1 text-right">{{ job.location }}
-                        ({{ job.startDate }}
-                        -
-                        {{ job.endDate }})</div>
-                </div>
-                <ul class="body-text">
-                    {% for highlight in job.highlights %}
-                        <li class="my-1">{{ highlight }}</li>
+      </div>
+
+      <div class="flex-1 text-right align-middle leading-tight">
+        {{ basics.phone }}
+        <br />
+        <a href="mailto:{{ basics.email }}">{{ basics.email }}</a>
+        <br />
+        <a href="http://{{ basics.github }}">{{ basics.github }}</a>
+        <br />
+        {{ basics.location.lockup }}
+      </div>
+    </div>
+    <hr />
+    <!-- WORK EXPERIENCE -->
+    <div class="section-header">Work Experience</div>
+    <div class="flex flex-col">
+      {% for job in work %}
+      <div class="flex justify-between subsection-header">
+        <div class="flex-1">
+          {{ job.company }}
+          -
+          {{ job.position }}
+        </div>
+        <div class="flex-1 text-right">
+          {{ job.location }} ({{ job.startDate }}
+          -
+          {{ job.endDate }})
+        </div>
+      </div>
+      <ul class="body-text">
+        {% for highlight in job.highlights %}
+        <li class="my-1">{{ highlight }}</li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </div>
+
+    <hr />
+    <!-- Skills -->
+    <div class="section-header">Skills</div>
+        <ul class="body-text mt-4">
+            {% for section, entries in skills %}
+                <li class="mb-1">
+                    <span class="font-bold capitalize">{{ section }}: </span>
+                    {% for skill in entries %}
+                        <span class="whitespace-no-wrap">
+                            {% if loop.last %}{{ skill }}
+                            {% else %}{{ skill }},
+                            {% endif %}
+                        </span>
                     {% endfor %}
-                </ul>
+                </li>
             {% endfor %}
+        </ul>
+    </div>
+    <hr />
+
+    <!-- Side Projects -->
+    <div class="section-header">Side Projects</div>
+    <div class="flex flex-col">
+      {% for project in projects %}
+      <div class="flex justify-between subsection-header">
+        <div class="flex-1">{{ project.name }}</div>
+        {#
+        <div class="flex-1 text-right">
+          {{ edu.location }} ({{ edu.startDate }} - {{ edu.endDate }})
         </div>
+        #}
+      </div>
+      <ul class="body-text">
+        {% for highlight in project.highlights %}
+        <li class="mb-1">{{ highlight }}</li>
+        {% endfor %}
+      </ul>
+      {% endfor %}
+    </div>
+    <hr />
 
-        <hr>
-        <!-- Side Projects -->
-        <div class="section-header">Side Projects</div>
-        <div class="flex flex-col">
-            {% for project in projects %}
-                <div class="flex justify-between subsection-header">
-                    <div class="flex-1">{{ project.name }}</div>
-                    {# <div class="flex-1 text-right">{{ edu.location }} ({{ edu.startDate }} - {{ edu.endDate }})</div> #}
-                </div>
-                <ul class="body-text">
-                    {% for highlight in project.highlights %}
-                        <li class="mb-1">{{ highlight }}</li>
-                    {% endfor %}
-                </ul>
-            {% endfor %}
+    <!-- Education -->
+    <div class="section-header">Education</div>
+    <div class="flex flex-col">
+      {% for edu in education %}
+      <div class="flex justify-between subsection-header">
+        <div class="flex-1">{{ edu.institution }}</div>
+        <div class="flex-1 text-right">
+          {{ edu.location }} ({{ edu.startDate }}
+          -
+          {{ edu.endDate }})
         </div>
-        <hr>
-        <!-- Education -->
-        <div class="section-header">Education</div>
-        <div class="flex flex-col">
-            {% for edu in education %}
-                <div class="flex justify-between subsection-header">
-                    <div class="flex-1">{{ edu.institution }}</div>
-                    <div class="flex-1 text-right">{{ edu.location }}
-                        ({{ edu.startDate }}
-                        -
-                        {{ edu.endDate }})</div>
-                </div>
-                <div class="body-text">{{ edu.studyType }},
-                    {{ edu.area }}</div>
-                <div class="body-text">Minors in
-                    {% for minor in edu.minors %}
-                        {{ minor }}
-                        {% if not loop.last %},{% endif %}
-                    {% endfor %}
-                </div>
-            {% endfor %}
-        </div>
+      </div>
+      <div class="body-text">{{ edu.studyType }}, {{ edu.area }}</div>
+      <div class="body-text">
+        Minors in {% for minor in edu.minors %}
+        {{ minor }}
+        {% if not loop.last %},{% endif %} {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+  <style>
 
-    </body>
-    <style>
+    /* prevents pdf from color changing */
+    html {
+        -webkit-print-color-adjust: exact;
+    }
 
-        /* prevents pdf from color changing */
-        html {
-            -webkit-print-color-adjust: exact;
-        }
+    body {
+        margin: 5% 8%;
+        /* font-family: 'Roboto Slab', serif; */
+        font-family: 'Neuton', sans-serif;
+    }
 
-        body {
-            margin: 5% 8%;
-            /* font-family: 'Roboto Slab', serif; */
-            font-family: 'Neuton', sans-serif;
-        }
+    .serif {
+        font-family: 'Neuton', serif;
+    }
+    .sans {
+        font-family: 'Montserrat', sans-serif;
+    }
 
-        .serif {
-            font-family: 'Neuton', serif;
-        }
-        .sans {
-            font-family: 'Montserrat', sans-serif;
-        }
+    a {
+        text-decoration: none;
+        color: #000000;
+        /* color: {{ themeColor }}; */
+    }
 
-        a {
-            text-decoration: none;
-            color: #000000;
-            /* color: {{ themeColor }}; */
-        }
+    hr {}
 
-        hr {}
+    .name {
+        font-variant: small-caps;
+    }
 
-        .name {
-            font-variant: small-caps;
-        }
+    .body-text {
+        /*font-size: 1.125rem;*/
+        font-size: 1rem;
+    }
+    li {
+        margin-left: -1.375rem;
+        padding-left: -5rem;
+    }
 
-        .body-text {
-            /*font-size: 1.125rem;*/
-            font-size: 1rem;
-        }
-        li {
-            margin-left: -1.375rem;
-            padding-left: -5rem;
-        }
+    .section-header {
+        border-top: 1px solid {{themeColor}};
+        padding-top: 1rem;
+        width: 100%;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-top: 1.125rem;
+        color: {{themeColor}};
+    }
 
-        .section-header {
-            border-top: 1px solid #7722aa;
-            padding-top: 1rem;
-            width: 100%;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-top: 1.75rem;
-            color: #7722aa;
-        }
-
-        .subsection-header {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
-        }
-    </style>
+    .subsection-header {
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+  </style>
 </html>
