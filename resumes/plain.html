@@ -12,8 +12,26 @@
     <link href="/tailwind-computed.css" rel="stylesheet" />
   </head>
   <body>
+    <!-- ALT HEADER -->
+    <div class="flex justify-between items-end body-text">
+      <div class="basic-info flex-1">
+        <a href="mailto:{{ basics.email }}">{{ basics.email }}</a>
+        <br />
+        {{ basics.phone }}
+      </div>
+      <div class="flex-grow text-center">
+        <span class="text-4xl">{{ basics.name }}</span>
+        <br />
+        {{ basics.location.lockup }}
+      </div>
+      <div class="basic-info flex-1 text-right">
+        <a href="http://{{ basics.github }}">{{ basics.github }}</a>
+        <br />
+        {{ basics.location.lockup }}
+      </div>
+    </div>
     <!-- HEADER -->
-    <div class="flex justify-start items-center">
+    <!-- <div class="flex justify-start items-center">
       <div class="flex-grow self-start text-left">
         <div class="text-5xl -mfb-4 serif font-bold name">
           {{ basics.name }}
@@ -30,7 +48,7 @@
         {{ basics.location.lockup }}
       </div>
     </div>
-    <hr />
+    <hr /> -->
     <!-- WORK EXPERIENCE -->
     <div class="section-header">Work Experience</div>
     <div class="flex flex-col">
@@ -49,7 +67,7 @@
       </div>
       <ul class="body-text">
         {% for highlight in job.highlights %}
-        <li class="my-2">{{ highlight }}</li>
+        <li>{{ highlight }}</li>
         {% endfor %}
       </ul>
       {% endfor %}
@@ -58,79 +76,82 @@
     <hr />
     <!-- Skills -->
     <div class="section-header">Skills</div>
-        <ul class="body-text mt-3">
-            {% for section, entries in skills %}
-                <li class="my-2">
-                    <span class="font-bold capitalize">{{ section }}: </span>
-                    {% for skill in entries %}
-                        <span class="whitespace-no-wrap">
-                            {% if loop.last %}{{ skill }}
-                            {% else %}{{ skill }},
-                            {% endif %}
-                        </span>
-                    {% endfor %}
-                </li>
-            {% endfor %}
-        </ul>
+    <div class="mb-6">
+      <ul class="body-text my-3">
+        {% for section, entries in skills %}
+        <li>
+          <span class="font-bold capitalize">{{ section }}: </span>
+          {% for skill in entries %}
+          <span class="whitespace-no-wrap">
+            {% if loop.last %}{{ skill }} {% else %}{{ skill }}, {% endif %}
+          </span>
+          {% endfor %}
+        </li>
+        {% endfor %}
+      </ul>
     </div>
     <hr />
-    
+
     <!-- Compact Side Projects -->
     <div class="section-header">Side Projects</div>
-        <ul class="body-text mt-3">
-            {% for project in projects %}
-                <li class="my-2">
-                    <a href="{{project.link}}" class="font-bold capitalize">{{ project.name }}:</a>
-                    <span>
-                    {% for highlight in project.highlights %}
-                            {% if loop.last %}{{ highlight }}
-                            {% else %}{{ highlight }}
-                            {% endif %}
-                    {% endfor %}
-                </span>
-                </li>
-            {% endfor %}
-        </ul>
+    <div class="mb-6">
+      <ul class="body-text mt-3">
+        {% for project in projects %}
+        <li>
+          <a href="{{ project.link }}" class="font-bold capitalize"
+            >{{ project.name }}:</a
+          >
+          <span>
+            {% for highlight in project.highlights %} {% if loop.last %}{{
+              highlight
+            }}
+            {% else %}{{ highlight }}
+            {% endif %} {% endfor %}
+          </span>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
     <hr />
 
     <!-- Education -->
     <div class="section-header">Education</div>
-      {% for edu in education %}
-      <div class="flex justify-between subsection-header">
-        <div class="flex-1">{{ edu.institution }}</div>
-        <div class="flex-1 text-right">
-          {{ edu.location }} ({{ edu.startDate }}
-          -
-          {{ edu.endDate }})
-        </div>
+    {% for edu in education %}
+    <div class="flex justify-between subsection-header">
+      <div class="flex-1">{{ edu.institution }}</div>
+      <div class="flex-1 text-right">
+        {{ edu.location }} ({{ edu.startDate }}
+        -
+        {{ edu.endDate }})
       </div>
-      <div class="body-text">
-        <ul>
-          <li class="my-2">
-              {{ edu.studyType }}, {{ edu.area }}
-            </li>
-            <li class="my-2">
-                Minors in {% for minor in edu.minors %}
-                {% if not loop.last %}
-                {{ minor }},
-                {% else %}
-                {{ minor }}
-                {% endif %} {% endfor %}
-            </li>
+    </div>
+    <div class="body-text">
+      <ul>
+        <li>{{ edu.studyType }}, {{ edu.area }}</li>
+        <li>
+          Minors in {% for minor in edu.minors %} {% if not loop.last %}
+          {{ minor }}, {% else %}
+          {{ minor }}
+          {% endif %} {% endfor %}
+        </li>
+        <li>
+          <span class="font-bold capitalize"
+            >{{ edu.projects.capstone.name }}:</span
+          >
+          <span>
+            {% for highlight in edu.projects.capstone.highlights %} {% if
+            loop.last %}{{ highlight }} {% else %}{{ highlight }}
+            {% endif %} {% endfor %}
+          </span>
+        </li>
       </ul>
     </div>
-    <div class="subsection-header"></div>
-    {% endfor %}
-    {% for cert in certifications %}
-    <div class="flex justify-between subsection-header">
-        <div class="flex-1">Certification: {{ cert.name }}</div>
-        <div class="flex-1 text-right">
-            {{ cert.date }}
-        </div>
+    {% endfor %} {% for cert in certifications %}
+    <div class="flex justify-between subsection-header mt-4">
+      <div class="flex-1">{{ cert.name }} Certification</div>
+      <div class="flex-1 text-right">({{ cert.date }})</div>
     </div>
     {% endfor %}
-    
   </body>
   <style>
 
@@ -168,9 +189,18 @@
         /*font-size: 1.125rem;*/
         font-size: 0.8rem;
     }
+
+    .basic-info {
+      line-height: 1.4rem;
+    }
+
+
     li {
         margin-left: -1.375rem;
         padding-left: -5rem;
+        margin-top: 0.4rem;
+        margin-bottom: 0.4rem;
+        line-height: 1.1rem;
     }
 
     .section-header {

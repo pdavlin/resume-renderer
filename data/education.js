@@ -9,6 +9,16 @@ module.exports = [
     gpa: "3.49",
     location: "Omaha, NE",
     courses: [""],
-    minors: ["Computer Science", "Mathematics"]
+    minors: ["Computer Science", "Mathematics"],
+    projects: {
+      capstone: {
+        name:
+          "Penetration Testing Project for Local Banking Startup (Capstone Project)",
+        highlights: [
+          "Searched for vulnerabilities in banking software using black-box testing methods.",
+          "Created report summarizing security recommendations."
+        ]
+      }
+    }
   }
 ];

@@ -10,7 +10,7 @@ const powerrank = {
   name: "Powerrank",
   highlights: [
     "Fully responsive Vue.js single page app that calculates aggregate “power rankings” based on ranked-choice poll results.",
-    "Node.js REST API backend using MongoDB."
+    "Uses Node.js REST API backend with MongoDB."
   ],
   link: "https://powerrank.pc.codes"
 };
@@ -61,7 +61,7 @@ const theatreCam = {
   ]
 };
 
-const generalProjects = [powerrank, voting, pptxgen];
+const generalProjects = [powerrank, votingFrontEnd, pptxgen];
 const jsProjects = [powerrank, voting, pptxgen];
 const pythonProjects = [powerrank, inspopaper, pptxgen]; // uh, as many are as worth showing off
 const frontendProjects = [powerrank, votingFrontEnd, resumeGenerator, pptxgen];
