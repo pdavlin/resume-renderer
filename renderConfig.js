@@ -23,6 +23,11 @@ const renders = [
     data: resumeData.fullStackData
   },
   {
+    title: "backend-dev-plain",
+    template: "plain.html",
+    data: resumeData.backEndData
+  },
+  {
     title: "ANONYMIZED",
     template: "2pretty.html",
     data: resumeData.anonymousData

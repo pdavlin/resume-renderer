@@ -27,7 +27,7 @@
       <div class="basic-info flex-1 text-right">
         <a href="http://{{ basics.github }}">{{ basics.github }}</a>
         <br />
-        {{ basics.location.lockup }}
+        {{ basics. }}
       </div>
     </div>
     <!-- HEADER -->
@@ -51,7 +51,7 @@
     <hr /> -->
     <!-- WORK EXPERIENCE -->
     <div class="section-header">Work Experience</div>
-    <div class="flex flex-col">
+    <div class="mb-6">
       {% for job in work %}
       <div class="flex justify-between subsection-header">
         <div class="flex-1">
@@ -76,7 +76,7 @@
     <hr />
     <!-- Skills -->
     <div class="section-header">Skills</div>
-    <div class="mb-6">
+    <div class="no-subheader-section">
       <ul class="body-text my-3">
         {% for section, entries in skills %}
         <li>
@@ -94,7 +94,7 @@
 
     <!-- Compact Side Projects -->
     <div class="section-header">Side Projects</div>
-    <div class="mb-6">
+    <div class="no-subheader-section">
       <ul class="body-text mt-3">
         {% for project in projects %}
         <li>
@@ -127,7 +127,7 @@
     </div>
     <div class="body-text">
       <ul>
-        <li>{{ edu.studyType }}, {{ edu.area }}</li>
+        <li class="font-bold">{{ edu.studyTypeShort }} {{ edu.area }}</li>
         <li>
           Minors in {% for minor in edu.minors %} {% if not loop.last %}
           {{ minor }}, {% else %}
@@ -216,8 +216,13 @@
     .subsection-header {
         font-size: 0.875rem;
         font-weight: 700;
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.625rem;
+    }
+
+    .no-subheader-section {
+      margin-top: 0.75rem;
+      margin-bottom: 1.5rem;
     }
   </style>
 </html>

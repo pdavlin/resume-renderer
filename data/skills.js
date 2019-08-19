@@ -73,12 +73,12 @@ const backEndSkills = {
   ],
   other: [
     "Technical Writing",
-    "Adobe Illustrator",
-    "Blender",
-    "Slack API",
     "Excel",
-    "Arduino",
     "Desktop Linux",
+    "Slack API",
+    "Arduino",
+    "Blender",
+    "Adobe Illustrator",
     "Improv Comedy"
   ]
 };
@@ -117,12 +117,12 @@ const fullStackSkills = {
   ],
   other: [
     "Technical Writing",
+    "Desktop Linux",
+    "Excel",
+    "Slack API",
+    "Arduino",
     "Adobe Illustrator",
     "Blender",
-    "Slack API",
-    "Excel",
-    "Arduino",
-    "Desktop Linux",
     "Improv Comedy"
   ]
 };
