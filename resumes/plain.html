@@ -10,10 +10,16 @@
       rel="stylesheet"
     />
     <link href="/tailwind-computed.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <!-- ALT HEADER -->
-    <div class="flex justify-between items-end body-text">
+    <div class="flex justify-between items-end">
       <div class="basic-info flex-1">
         <a href="mailto:{{ basics.email }}">{{ basics.email }}</a>
         <br />
@@ -22,7 +28,9 @@
       <div class="flex-grow text-center">
         <span class="text-4xl">{{ basics.name }}</span>
         <br />
-        {{ basics.location.lockup }}
+        <div class="basic-info">
+          {{ basics.location.lockup }}
+        </div>
       </div>
       <div class="basic-info flex-1 text-right">
         <a href="http://{{ basics.profiles.github }}">{{
@@ -52,110 +60,117 @@
         {{ basics.location.lockup }}
       </div>
     </div>
-    <hr /> -->
+     -->
     <!-- WORK EXPERIENCE -->
-    <div class="section-header">Work Experience</div>
-    <div class="mb-6">
+    <div class="section">
+      <div class="section-header">Work Experience</div>
       {% for job in work %}
-      <div class="flex justify-between subsection-header">
-        <div class="flex-1">
-          {{ job.company }}
-          -
-          {{ job.position }}
+      <div class="subsection">
+        <div class="flex justify-between subsection-header">
+          <div class="flex-1">
+            {{ job.company }}
+            -
+            {{ job.position }}
+          </div>
+          <div class="flex-1 text-right">
+            {{ job.location }} ({{ job.startDate }}
+            -
+            {{ job.endDate }})
+          </div>
         </div>
-        <div class="flex-1 text-right">
-          {{ job.location }} ({{ job.startDate }}
-          -
-          {{ job.endDate }})
-        </div>
+        <ul class="body-text">
+          {% for highlight in job.highlights %}
+          <li>{{ highlight }}</li>
+          {% endfor %}
+        </ul>
       </div>
-      <ul class="body-text">
-        {% for highlight in job.highlights %}
-        <li>{{ highlight }}</li>
-        {% endfor %}
-      </ul>
       {% endfor %}
     </div>
 
-    <hr />
     <!-- Skills -->
-    <div class="section-header">Skills</div>
-    <div class="no-subheader-section">
-      <ul class="body-text my-3">
-        {% for section, entries in skills %}
-        <li>
-          <span class="font-bold capitalize">{{ section }}: </span>
-          {% for skill in entries %}
-          <span class="whitespace-no-wrap">
-            {% if loop.last %}{{ skill }} {% else %}{{ skill }}, {% endif %}
-          </span>
+    <div class="section">
+      <div class="section-header">Skills</div>
+      <div class="subsection">
+        <ul class="body-text">
+          {% for section, entries in skills %}
+          <li>
+            <span class="font-bold capitalize">{{ section }}: </span>
+            {% for skill in entries %}
+            <span class="whitespace-no-wrap">
+              {% if loop.last %}{{ skill }} {% else %}{{ skill }}, {% endif %}
+            </span>
+            {% endfor %}
+          </li>
           {% endfor %}
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    <hr />
-
-    <!-- Compact Side Projects -->
-    <div class="section-header">Side Projects</div>
-    <div class="no-subheader-section">
-      <ul class="body-text mt-3">
-        {% for project in projects %}
-        <li>
-          <a href="{{ project.link }}" class="font-bold capitalize"
-            >{{ project.name }}:</a
-          >
-          <span>
-            {% for highlight in project.highlights %} {% if loop.last %}{{
-              highlight
-            }}
-            {% else %}{{ highlight }}
-            {% endif %} {% endfor %}
-          </span>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    <hr />
-
-    <!-- Education -->
-    <div class="section-header">Education</div>
-    {% for edu in education %}
-    <div class="flex justify-between subsection-header">
-      <div class="flex-1">{{ edu.institution }}</div>
-      <div class="flex-1 text-right">
-        {{ edu.location }} ({{ edu.startDate }}
-        -
-        {{ edu.endDate }})
+        </ul>
       </div>
     </div>
-    <div class="body-text">
-      <ul>
-        <li class="font-bold">{{ edu.studyTypeShort }} {{ edu.area }}</li>
-        <li>
-          Minors in {% for minor in edu.minors %} {% if not loop.last %}
-          {{ minor }}, {% else %}
-          {{ minor }}
-          {% endif %} {% endfor %}
-        </li>
-        <li>
-          <span class="font-bold capitalize"
-            >{{ edu.projects.capstone.name }}:</span
-          >
-          <span>
-            {% for highlight in edu.projects.capstone.highlights %} {% if
-            loop.last %}{{ highlight }} {% else %}{{ highlight }}
+
+    <!-- Compact Side Projects -->
+    <div class="section">
+      <div class="section-header">Side Projects</div>
+      <div class="subsection">
+        <ul class="body-text">
+          {% for project in projects %}
+          <li>
+            <a href="{{ project.link }}" class="font-bold capitalize"
+              >{{ project.name }} :</a
+            >
+            <span>
+              {% for highlight in project.highlights %} {% if loop.last %}{{
+                highlight
+              }}
+              {% else %}{{ highlight }}
+              {% endif %} {% endfor %}
+            </span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <div class="section-header">Education</div>
+      {% for edu in education %}
+      <div class="subsection">
+        <div class="flex justify-between subsection-header">
+          <div class="flex-1">{{ edu.institution }}</div>
+          <div class="flex-1 text-right">
+            {{ edu.location }} ({{ edu.startDate }}
+            -
+            {{ edu.endDate }})
+          </div>
+        </div>
+        <ul class="body-text">
+          <li class="font-bold">{{ edu.studyTypeShort }} {{ edu.area }}</li>
+          <li>
+            Minors in {% for minor in edu.minors %} {% if not loop.last %}
+            {{ minor }}, {% else %}
+            {{ minor }}
             {% endif %} {% endfor %}
-          </span>
-        </li>
-      </ul>
+          </li>
+          <li>
+            <span class="font-bold capitalize"
+              >{{ edu.projects.capstone.name }}:</span
+            >
+            <span>
+              {% for highlight in edu.projects.capstone.highlights %} {% if
+              loop.last %}{{ highlight }} {% else %}{{ highlight }}
+              {% endif %} {% endfor %}
+            </span>
+          </li>
+        </ul>
+      </div>
+      {% endfor %} {% for cert in certifications %}
+      <div class="subsection">
+        <div class="flex justify-between subsection-header mt-4">
+          <div class="flex-1">{{ cert.name }} Certification</div>
+          <div class="flex-1 text-right">({{ cert.date }})</div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %} {% for cert in certifications %}
-    <div class="flex justify-between subsection-header mt-4">
-      <div class="flex-1">{{ cert.name }} Certification</div>
-      <div class="flex-1 text-right">({{ cert.date }})</div>
-    </div>
-    {% endfor %}
   </body>
   <style>
 
@@ -196,6 +211,7 @@
 
     .basic-info {
       line-height: 1.4rem;
+      font-size: 0.75rem;
     }
 
 
@@ -207,26 +223,29 @@
         line-height: 1.1rem;
     }
 
+    .subsection {
+      /* border: 1px solid black; */
+      margin-top: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section {
+      /* border: 1px solid green; */
+      margin-top: 1.5rem;
+    }
+
     .section-header {
-        border-top: 1px solid {{themeColor}};
+        border-top: 1.5px solid {{themeColor}};
         padding-top: 1rem;
         width: 100%;
         font-size: 1.25rem;
         font-weight: 700;
-        margin-top: 1.125rem;
         color: {{themeColor}};
     }
 
     .subsection-header {
         font-size: 0.875rem;
         font-weight: 700;
-        margin-top: 1.5rem;
-        margin-bottom: 0.625rem;
-    }
-
-    .no-subheader-section {
-      margin-top: 0.75rem;
-      margin-bottom: 1.5rem;
     }
   </style>
 </html>

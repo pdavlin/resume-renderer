@@ -23,13 +23,13 @@ const frontEndData = merge(deepClone(data), {
 const backEndData = merge(deepClone(data), {
   skills: skills.backEndSkills,
   projects: projects.generalProjects,
-  themeColor: "#6574CD" // Indigo
+  themeColor: "#05a19c" // Teal
 });
 
 const fullStackData = merge(deepClone(data), {
   skills: skills.fullStackSkills,
   projects: projects.generalProjects,
-  themeColor: "#05a19c" // Teal
+  themeColor: "#6574CD" // Indigo
 });
 
 const anonymousData = Object.assign(deepClone(data), {

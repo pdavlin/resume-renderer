@@ -11,8 +11,8 @@ module.exports = [
       "Designed, tested, and troubleshot the secure transportation of log data.",
       "Created specifications for non-Rsyslog transport including REST APIs and database queries.",
       "Analyzed data structures and content to create security-relevant parsing rules for log data.",
-      "Composed detailed and consistent technical documents to ensure accuracy and maintainability.",
-      "Increased team efficiency by creating CLI Python utilities and JavaScript and Vue to automate tasks."
+      "Composed detailed and consistent technical documentation to ensure accuracy and maintainability.",
+      "Increased team efficiency by using Python, JavaScript, and Vue.js to create automation tools."
     ]
   },
   {

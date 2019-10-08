@@ -14,9 +14,9 @@ const basics = {
   location: {
     address: "",
     postalCode: "",
-    city: "New York",
+    city: "Brooklyn",
     state: "NY",
-    lockup: "New York City",
+    lockup: "Brooklyn, NY",
     countryCode: "US",
     region: "New York"
   }

@@ -13,7 +13,7 @@ module.exports = [
     projects: {
       capstone: {
         name:
-          "Penetration Testing Project for Local Banking Startup (Capstone Project)",
+          "Penetration Testing for Local Banking Startup (Capstone Project)",
         highlights: [
           "Searched for vulnerabilities in banking software using black-box testing methods.",
           "Created report summarizing security recommendations."
