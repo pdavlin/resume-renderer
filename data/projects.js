@@ -30,7 +30,7 @@ const voting = {
     "Jackbox-style multiplayer game created to allow live audience voting via smartphone in comedy shows.",
     "Socket.io server for real-time communication with Vue.js frontend and D3.js vote visualization."
   ],
-  link: "https://testkitchen.fun"
+  link: "https://vote.pc.codes"
 };
 
 const votingFrontEnd = replaceHighlights(voting, [
@@ -42,7 +42,7 @@ const pptxgen = {
   highlights: [
     "Procedurally generates slideshows using a variety of text and image sources."
   ],
-  link: "https://forgotmyslides.xyz"
+  link: "https://pptx.pc.codes"
 };
 
 const resumeGenerator = {
