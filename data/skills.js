@@ -91,8 +91,8 @@ const fullStackSkills = {
     "Shell Scripting",
     "HTML5",
     "CSS3",
-    "SQL",
     "Java",
+    "SQL",
     "C",
     "Assembly"
   ],
