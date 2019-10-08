@@ -114,7 +114,8 @@
           {% for project in projects %}
           <li>
             <a href="{{ project.link }}" class="font-bold capitalize"
-              >{{ project.name }}:</a
+              >{{ project.name }}
+              <i class="fas fa-external-link-alt link-icon"></i>:</a
             >
             <span>
               {% for highlight in project.highlights %} {% if loop.last %}{{
