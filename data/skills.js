@@ -1,8 +1,8 @@
 const frontEndSkills = {
   languages: [
     "JavaScript",
-    "HTML5",
-    "CSS3",
+    "HTML",
+    "CSS",
     "Python",
     "Shell Scripting",
     "C#",
@@ -49,8 +49,8 @@ const backEndSkills = {
     "Java",
     "SQL",
     "C",
-    "HTML5",
-    "CSS3",
+    "HTML",
+    "CSS",
     "Assembly"
   ],
   "tools and frameworks": [
@@ -89,8 +89,8 @@ const fullStackSkills = {
     "Python",
     "C#",
     "Shell Scripting",
-    "HTML5",
-    "CSS3",
+    "HTML",
+    "CSS",
     "Java",
     "SQL",
     "C",
@@ -102,8 +102,6 @@ const fullStackSkills = {
     "REST APIs",
     "Linux",
     "Git",
-    "Express",
-    "Flask",
     "Docker",
     "MongoDB",
     "PostgreSQL",
@@ -112,8 +110,50 @@ const fullStackSkills = {
     "Webpack",
     "Rsyslog",
     "Unity",
-    "Google Cloud Platform",
+    "AWS",
     "Azure"
+  ],
+  other: [
+    "Technical Writing",
+    "Desktop Linux",
+    "Excel",
+    "Slack API",
+    "Arduino",
+    "Adobe Illustrator",
+    "Blender",
+    "Improv Comedy"
+  ]
+};
+
+securityDevSkills = {
+  languages: [
+    "JavaScript",
+    "Python",
+    "Shell Scripting",
+    "C#",
+    "Java",
+    "SQL",
+    "C",
+    "HTML",
+    "CSS",
+    "Assembly"
+  ],
+  "tools and frameworks": [
+    "Vue.js",
+    "React",
+    "REST APIs",
+    "Linux",
+    "Git",
+    "Docker",
+    "MongoDB",
+    "Socket.io",
+    "Vuex",
+    "Rsyslog",
+    "Unity",
+    "AWS",
+    "Azure",
+    "Zed Attack Proxy",
+    "Metasploit"
   ],
   other: [
     "Technical Writing",
@@ -130,5 +170,6 @@ const fullStackSkills = {
 module.exports = {
   frontEndSkills,
   backEndSkills,
-  fullStackSkills
+  fullStackSkills,
+  securityDevSkills
 };

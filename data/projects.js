@@ -65,10 +65,12 @@ const generalProjects = [powerrank, votingFrontEnd, pptxgen];
 const jsProjects = [powerrank, voting, pptxgen];
 const pythonProjects = [powerrank, inspopaper, pptxgen]; // uh, as many are as worth showing off
 const frontendProjects = [powerrank, votingFrontEnd, resumeGenerator, pptxgen];
+const securityDevProjects = [powerrank, votingFrontEnd, pptxgen];
 
 module.exports = {
   generalProjects,
   jsProjects,
   pythonProjects,
-  frontendProjects
+  frontendProjects,
+  securityDevProjects
 };

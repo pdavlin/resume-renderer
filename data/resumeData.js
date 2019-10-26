@@ -32,6 +32,12 @@ const fullStackData = merge(deepClone(data), {
   themeColor: "#6574CD" // Indigo
 });
 
+const securityDevData = merge(deepClone(data), {
+  skills: skills.securityDevSkills,
+  projects: projects.securityDevProjects,
+  themeColor: "#3f8be0" // Blue
+});
+
 const anonymousData = Object.assign(deepClone(data), {
   skills: skills.fullStackSkills,
   projects: projects.generalProjects,
@@ -43,5 +49,6 @@ module.exports = {
   frontEndData,
   backEndData,
   anonymousData,
-  fullStackData
+  fullStackData,
+  securityDevData
 };
