@@ -1,6 +1,7 @@
 const frontEndSkills = {
   languages: [
     "JavaScript",
+    "Node.js",
     "HTML",
     "CSS",
     "Python",
@@ -33,7 +34,6 @@ const frontEndSkills = {
     "Technical Writing",
     "Blender",
     "Slack API",
-    "Excel",
     "Arduino",
     "Desktop Linux",
     "Improv Comedy"
@@ -43,6 +43,7 @@ const frontEndSkills = {
 const backEndSkills = {
   languages: [
     "JavaScript",
+    "Node.js",
     "Python",
     "C#",
     "Shell Scripting",
@@ -73,7 +74,6 @@ const backEndSkills = {
   ],
   other: [
     "Technical Writing",
-    "Excel",
     "Desktop Linux",
     "Slack API",
     "Arduino",
@@ -86,6 +86,7 @@ const backEndSkills = {
 const fullStackSkills = {
   languages: [
     "JavaScript",
+    "Node.js",
     "Python",
     "C#",
     "Shell Scripting",
@@ -116,11 +117,8 @@ const fullStackSkills = {
   other: [
     "Technical Writing",
     "Desktop Linux",
-    "Excel",
     "Slack API",
     "Arduino",
-    "Adobe Illustrator",
-    "Blender",
     "Improv Comedy"
   ]
 };
@@ -128,6 +126,7 @@ const fullStackSkills = {
 securityDevSkills = {
   languages: [
     "JavaScript",
+    "Node.js",
     "Python",
     "Shell Scripting",
     "C#",
@@ -158,11 +157,8 @@ securityDevSkills = {
   other: [
     "Technical Writing",
     "Desktop Linux",
-    "Excel",
     "Slack API",
     "Arduino",
-    "Adobe Illustrator",
-    "Blender",
     "Improv Comedy"
   ]
 };
