@@ -14,13 +14,13 @@
   "author": "Price Comstock",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^24.7.1",
-    "tailwindcss": "^0.7.4"
+    "jest": "*",
+    "tailwindcss": "*"
   },
   "dependencies": {
-    "express": "^4.16.4",
-    "nunjucks": "^3.2.0",
-    "puppeteer": "^1.15.0",
-    "yargs": "^13.2.2"
+    "express": "*",
+    "nunjucks": "*",
+    "puppeteer": "*",
+    "yargs": "*"
   }
 }
