@@ -85,12 +85,12 @@
             <!-- RIGHT SIDE -->
             <div class="flex content-start flex-col flex-1 border-l-2 border-theme-color">
                 <div class="flex-shrink pretty-resume-section-header border-theme-color text-theme-color">
-                    Side Projects
+                    Objective
                 </div>
                 <div class="pb-4">
-                    {% for project in projects %}
+
                         <div class="flex-shrink py-0">
-                            <div class="">
+                            <!-- <div class="">
                                 <div class="pretty-resume-subsection-header -mb-1">
                                     {% if project.link %}
                                         <a href="{{project.link}}">{{ project.name }}
@@ -100,14 +100,12 @@
                                         <span>{{ project.name }}</span>
                                     {% endif %}
                                 </div>
-                            </div>
+                            </div> -->
                             <ul class="pretty-resume-bullets">
-                                {% for highlight in project.highlights %}
-                                    <li class="my-2">{{ highlight }}</li>
-                                {% endfor %}
-                            </ul>
+                                <li class="my-2">Improve understanding of user interface technology, design, and implementation across applications in operational and customer experience domains internally in UP as a UI partner</li>
+                                <li class="my-2">Continue growth and development as a software engineer, seeking an understanding of UI technology and its impact upon operations at a Fortune 150 rail company</li>
+                            </ul> 
                         </div>
-                    {% endfor %}
                 </div>
                 <div class="flex-shrink pretty-resume-section-header border-theme-color text-theme-color">
                     Skills
