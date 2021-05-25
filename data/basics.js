@@ -1,24 +1,24 @@
 const basics = {
-  name: "Price Comstock",
-  label: "Full Stack Software Engineer",
+  name: "Patrick Davlin",
+  label: "Software Engineer",
   picture: "",
-  email: "price.comstock@gmail.com",
-  phone: "(402) 943-7952",
-  website: "pc.codes",
+  email: "patrick@davlin.io",
+  phone: "(402) 612-9050",
+  website: "davlin.io",
   profiles: {
-    linkedin: "linkedin.com/in/pricecomstock",
-    github: "github.com/pricecomstock"
+    linkedin: "linkedin.com/in/pdavlin",
+    github: "github.com/pdavlin"
   },
   summary:
     "I am a full-stack developer seeking a software engineering position. I am most proficient in Node.js and Python, and have operations and deployment experience.",
   location: {
     address: "",
     postalCode: "",
-    city: "Brooklyn",
-    state: "NY",
-    lockup: "Brooklyn, NY",
+    city: "Omaha",
+    state: "NE",
+    lockup: "Omaha, NE",
     countryCode: "US",
-    region: "New York"
+    region: "USA"
   }
 };
 
